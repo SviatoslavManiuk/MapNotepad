@@ -3,4 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
              x:Class="MapNotepad.App">
+    <prism:PrismApplication.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseButton" TargetType="Button">
+                <Setter Property="TextColor" Value="#FEFEFD" />
+                <Setter Property="BackgroundColor" Value="#596EFB" />
+                <Setter Property="FontFamily" Value="Montserrat" />
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="CornerRadius" Value="1"/>
+                <Setter Property="Margin" Value="16"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+            </Style>
+        </ResourceDictionary>
+    </prism:PrismApplication.Resources>
 </prism:PrismApplication>

@@ -1,10 +1,12 @@
 ﻿using System;
+using Prism.Ioc;
+using Prism.Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MapNotepad
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
         public App()
         {
@@ -13,6 +15,18 @@ namespace MapNotepad
             MainPage = new MainPage();
         }
 
+        #region --- Overrides ---
+        
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            
+        }
+
+        protected override void OnInitialized()
+        {
+            
+        }
+        
         protected override void OnStart()
         {
         }
@@ -24,5 +38,7 @@ namespace MapNotepad
         protected override void OnResume()
         {
         }
+        
+        #endregion
     }
 }

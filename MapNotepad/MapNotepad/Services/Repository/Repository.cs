@@ -17,6 +17,9 @@ namespace Contacts.Services.Repository
                 string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                     "contacts.db3");
                 var database = new SQLiteAsyncConnection(path);
+
+                database.CreateTableAsync<UserModel>().Wait();
+                database.CreateTableAsync<PinModel>().Wait();
                 
                 return database;
             });

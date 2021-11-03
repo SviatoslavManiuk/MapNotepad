@@ -13,18 +13,18 @@ namespace MapNotepad.ViewModel.ViewModelList
 
         public ICommand LogInButtonTapCommand => new Command(OnLogInButtonTap);
         
-        public ICommand CreateButtonTapCommand => new Command(OnCreateButtonTap);
+        public ICommand CreateAccountButtonTapCommand => new Command(OnCreateAccountButtonTap);
 
         #region --- Private Helpers---
         
         private async void OnLogInButtonTap()
         {
-            await NavigationService.NavigateAsync(nameof(LogIn));
+            await NavigationService.NavigateAsync("NavigationPage/" + nameof(LogIn));
         }
         
-        private async void OnCreateButtonTap()
+        private async void OnCreateAccountButtonTap()
         {
-            await NavigationService.NavigateAsync(nameof(CreateAccountEmail));
+            await NavigationService.NavigateAsync("NavigationPage/" + nameof(CreateAccountEmail));
         }
         
         #endregion

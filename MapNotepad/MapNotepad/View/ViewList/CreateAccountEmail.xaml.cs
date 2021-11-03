@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace MapNotepad.View.ViewList
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreateAccountEmail : ContentPage
+    public partial class CreateAccountEmail : BaseContentPage
     {
         public CreateAccountEmail()
         {

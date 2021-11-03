@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace MapNotepad.View.ViewList
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LogInRegister : ContentPage
+    public partial class LogInRegister : BaseContentPage
     {
         public LogInRegister()
         {

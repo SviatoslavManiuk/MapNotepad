@@ -20,7 +20,9 @@ namespace MapNotepad
             //Navigation
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<LogInRegister, LogInRegisterViewModel>();
-            
+            containerRegistry.RegisterForNavigation<LogIn, LogInViewModel>();
+            containerRegistry.RegisterForNavigation<CreateAccountEmail, CreateAccountEmailViewModel>();
+            containerRegistry.RegisterForNavigation<CreateAccountPassword, CreateAccountPasswordViewModel>();
         }
 
         protected override async void OnInitialized()

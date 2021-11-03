@@ -3,7 +3,7 @@ using Prism.Navigation;
 
 namespace MapNotepad.ViewModel
 {
-    public class BaseViewModel: BindableBase, IInitialize, INavigatedAware, IDestructible
+    public class BaseViewModel: BindableBase, IInitialize, INavigatedAware, IAppearingAware, IDestructible
     {
         public BaseViewModel(INavigationService navigationService)
         {
@@ -30,6 +30,18 @@ namespace MapNotepad.ViewModel
         }
 
         public virtual void OnNavigatedTo(INavigationParameters parameters)
+        {
+        }
+        
+        #endregion
+        
+        #region -- IAppearingAware --
+        
+        public virtual void OnAppearing()
+        {
+        }
+
+        public virtual void OnDisappearing()
         {
         }
         

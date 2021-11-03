@@ -1,4 +1,4 @@
-namespace MapNotepad.ViewModel
+namespace MapNotepad.ViewModel.ViewModelList
 {
     public class CreateAccountPasswordViewModel
     {

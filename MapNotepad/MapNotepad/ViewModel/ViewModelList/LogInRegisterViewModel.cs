@@ -1,14 +1,15 @@
-using System;
 using System.Windows.Input;
-using MapNotepad.Helpers;
-using MapNotepad.View;
+using MapNotepad.View.ViewList;
+using Prism.Navigation;
 using Xamarin.Forms;
 
-namespace MapNotepad.ViewModel
+namespace MapNotepad.ViewModel.ViewModelList
 {
     public class LogInRegisterViewModel: BaseViewModel
     {
-        public LogInRegisterViewModel(){}
+        public LogInRegisterViewModel(INavigationService navigationService) : base(navigationService)
+        {
+        }
 
         public ICommand LogInButtonTapCommand => new Command(OnLogInButtonTap);
         

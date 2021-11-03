@@ -1,10 +1,8 @@
-﻿using System;
-using MapNotepad.View;
-using MapNotepad.ViewModel;
+﻿using MapNotepad.View.ViewList;
+using MapNotepad.ViewModel.ViewModelList;
 using Prism.Ioc;
 using Prism.Unity;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MapNotepad
 {

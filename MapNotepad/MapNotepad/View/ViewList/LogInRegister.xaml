@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MapNotepad.View.LogInRegister">
+             x:Class="MapNotepad.View.ViewList.LogInRegister">
     
     
             <Grid RowDefinitions="0.7*, 0.3*">

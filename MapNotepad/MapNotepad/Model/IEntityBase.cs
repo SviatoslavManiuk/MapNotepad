@@ -1,4 +1,4 @@
-namespace Contacts.Model
+namespace MapNotepad.Model
 {
     public interface IEntityBase
     {

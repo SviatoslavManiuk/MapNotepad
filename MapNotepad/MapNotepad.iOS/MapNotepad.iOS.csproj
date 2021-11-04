@@ -140,6 +140,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\ic_left_blue.png" />
     <BundleResource Include="Resources\pic_enter_page.png" />
   </ItemGroup>
 </Project>

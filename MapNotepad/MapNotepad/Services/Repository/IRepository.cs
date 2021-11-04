@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Contacts.Model;
+using MapNotepad.Model;
 using SQLite;
 
-namespace Contacts.Services.Repository
+namespace MapNotepad.Services.Repository
 {
     public interface IRepository
     {

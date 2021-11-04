@@ -1,6 +1,6 @@
 using SQLite;
 
-namespace Contacts.Model
+namespace MapNotepad.Model
 {
     [Table("User")]
     public class UserModel: IEntityBase

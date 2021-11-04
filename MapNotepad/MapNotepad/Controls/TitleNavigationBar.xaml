@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="NavigationBar"
+             x:Class="MapNotepad.Controls.TitleNavigationBar">
+    <ContentPage.Content>
+        <StackLayout Orientation="Horizontal" HeightRequest="48" HorizontalOptions="Fill" Padding="17, 12">
+            <ImageButton HorizontalOptions="Start"
+                         HeightRequest="12"
+                         WidthRequest="6"
+                         Source="{Binding LeftImageSource, Source = { x:Reference NavigationBar}}"
+                         Command="{Binding LeftImageCommand, Source = { x:Reference NavigationBar}}"/>
+            <Label HorizontalOptions="Center"
+                   Style="{StaticResource Title}"
+                   Text="{Binding TextLabel, Source = { x:Reference NavigationBar}}"/>
+            <ImageButton HorizontalOptions="End"
+                         Source="{Binding RightImageSource, Source = { x:Reference NavigationBar}}"
+                         Command="{Binding RightImageCommand, Source = { x:Reference NavigationBar}}"
+                         IsVisible="{Binding RightImageIsVisible, Source = { x:Reference NavigationBar}}"
+                         IsEnabled="{Binding RightImageIsEnabled, Source = { x:Reference NavigationBar}}"
+                         BackgroundColor="Transparent"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentView>

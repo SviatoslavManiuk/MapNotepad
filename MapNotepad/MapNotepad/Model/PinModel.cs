@@ -1,6 +1,6 @@
 using SQLite;
 
-namespace Contacts.Model
+namespace MapNotepad.Model
 {
     [Table("Pin")]
     public class PinModel: IEntityBase

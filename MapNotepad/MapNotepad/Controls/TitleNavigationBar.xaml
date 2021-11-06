@@ -5,21 +5,29 @@
              x:Name="NavigationBar"
              x:Class="MapNotepad.Controls.TitleNavigationBar">
     <ContentPage.Content>
-        <StackLayout Orientation="Horizontal" HeightRequest="48" HorizontalOptions="Fill" Padding="17, 12">
-            <ImageButton HorizontalOptions="Start"
-                         HeightRequest="12"
-                         WidthRequest="6"
+        <StackLayout>
+        <StackLayout Orientation="Horizontal" HeightRequest="48" Padding="17, 12" >
+            <ImageButton VerticalOptions="Center"
+                         HorizontalOptions="Start"
+                         HeightRequest="30"
+                         WidthRequest="30"
+                         BackgroundColor="Transparent"
                          Source="{Binding LeftImageSource, Source = { x:Reference NavigationBar}}"
                          Command="{Binding LeftImageCommand, Source = { x:Reference NavigationBar}}"/>
-            <Label HorizontalOptions="Center"
+            <Label HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
                    Style="{StaticResource Title}"
-                   Text="{Binding TextLabel, Source = { x:Reference NavigationBar}}"/>
+                   Text="{Binding Title, Source = { x:Reference NavigationBar}}"/>
             <ImageButton HorizontalOptions="End"
+                         VerticalOptions="Center"
+                         HeightRequest="30"
+                         WidthRequest="30"
                          Source="{Binding RightImageSource, Source = { x:Reference NavigationBar}}"
                          Command="{Binding RightImageCommand, Source = { x:Reference NavigationBar}}"
                          IsVisible="{Binding RightImageIsVisible, Source = { x:Reference NavigationBar}}"
                          IsEnabled="{Binding RightImageIsEnabled, Source = { x:Reference NavigationBar}}"
                          BackgroundColor="Transparent"/>
+        </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentView>

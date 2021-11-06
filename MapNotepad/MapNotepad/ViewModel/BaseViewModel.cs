@@ -5,7 +5,7 @@ namespace MapNotepad.ViewModel
 {
     public class BaseViewModel: BindableBase, IInitialize, INavigatedAware, IAppearingAware, IDestructible
     {
-        public BaseViewModel(INavigationService navigationService)
+        protected BaseViewModel(INavigationService navigationService)
         {
             NavigationService = navigationService;
         }

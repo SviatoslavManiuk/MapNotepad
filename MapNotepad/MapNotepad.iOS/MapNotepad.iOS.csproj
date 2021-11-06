@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\SimpleEntryRenderer.cs" />
     <Compile Include="Renderers\Controls\ClickableContentViewRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
@@ -130,7 +131,6 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-    <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.3.0" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -140,7 +140,86 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\ic_apple.png" />
+    <BundleResource Include="Resources\ic_apple@2x.png" />
+    <BundleResource Include="Resources\ic_apple@3x.png" />
+    <BundleResource Include="Resources\ic_arrow_up_left.png" />
+    <BundleResource Include="Resources\ic_arrow_up_left@2x.png" />
+    <BundleResource Include="Resources\ic_arrow_up_left@3x.png" />
+    <BundleResource Include="Resources\ic_clear.png" />
+    <BundleResource Include="Resources\ic_clear@2x.png" />
+    <BundleResource Include="Resources\ic_clear@3x.png" />
+    <BundleResource Include="Resources\ic_clock.png" />
+    <BundleResource Include="Resources\ic_clock@2x.png" />
+    <BundleResource Include="Resources\ic_clock@3x.png" />
+    <BundleResource Include="Resources\ic_delete.png" />
+    <BundleResource Include="Resources\ic_delete@2x.png" />
+    <BundleResource Include="Resources\ic_delete@3x.png" />
+    <BundleResource Include="Resources\ic_down.png" />
+    <BundleResource Include="Resources\ic_down@2x.png" />
+    <BundleResource Include="Resources\ic_down@3x.png" />
+    <BundleResource Include="Resources\ic_edit.png" />
+    <BundleResource Include="Resources\ic_edit@2x.png" />
+    <BundleResource Include="Resources\ic_edit@3x.png" />
+    <BundleResource Include="Resources\ic_exid.png" />
+    <BundleResource Include="Resources\ic_exid@2x.png" />
+    <BundleResource Include="Resources\ic_exid@3x.png" />
+    <BundleResource Include="Resources\ic_eye.png" />
+    <BundleResource Include="Resources\ic_eye@2x.png" />
+    <BundleResource Include="Resources\ic_eye@3x.png" />
+    <BundleResource Include="Resources\ic_eye_off.png" />
+    <BundleResource Include="Resources\ic_eye_off@2x.png" />
+    <BundleResource Include="Resources\ic_eye_off@3x.png" />
+    <BundleResource Include="Resources\ic_facebook.png" />
+    <BundleResource Include="Resources\ic_facebook@2x.png" />
+    <BundleResource Include="Resources\ic_facebook@3x.png" />
+    <BundleResource Include="Resources\ic_google.png" />
+    <BundleResource Include="Resources\ic_google@2x.png" />
+    <BundleResource Include="Resources\ic_google@3x.png" />
     <BundleResource Include="Resources\ic_left_blue.png" />
+    <BundleResource Include="Resources\ic_left_blue@2x.png" />
+    <BundleResource Include="Resources\ic_left_blue@3x.png" />
+    <BundleResource Include="Resources\ic_left_gray.png" />
+    <BundleResource Include="Resources\ic_left_gray@2x.png" />
+    <BundleResource Include="Resources\ic_left_gray@3x.png" />
+    <BundleResource Include="Resources\ic_like_blue.png" />
+    <BundleResource Include="Resources\ic_like_blue@2x.png" />
+    <BundleResource Include="Resources\ic_like_blue@3x.png" />
+    <BundleResource Include="Resources\ic_like_gray.png" />
+    <BundleResource Include="Resources\ic_like_gray@2x.png" />
+    <BundleResource Include="Resources\ic_like_gray@3x.png" />
+    <BundleResource Include="Resources\ic_location.png" />
+    <BundleResource Include="Resources\ic_location@2x.png" />
+    <BundleResource Include="Resources\ic_location@3x.png" />
+    <BundleResource Include="Resources\ic_map.png" />
+    <BundleResource Include="Resources\ic_map@2x.png" />
+    <BundleResource Include="Resources\ic_map@3x.png" />
+    <BundleResource Include="Resources\ic_pin.png" />
+    <BundleResource Include="Resources\ic_pin@2x.png" />
+    <BundleResource Include="Resources\ic_pin@3x.png" />
+    <BundleResource Include="Resources\ic_pin_gray.png" />
+    <BundleResource Include="Resources\ic_pin_gray@2x.png" />
+    <BundleResource Include="Resources\ic_pin_gray@3x.png" />
+    <BundleResource Include="Resources\ic_placeholder.png" />
+    <BundleResource Include="Resources\ic_placeholder@2x.png" />
+    <BundleResource Include="Resources\ic_placeholder@3x.png" />
+    <BundleResource Include="Resources\ic_plus.png" />
+    <BundleResource Include="Resources\ic_plus@2x.png" />
+    <BundleResource Include="Resources\ic_plus@3x.png" />
+    <BundleResource Include="Resources\ic_save.png" />
+    <BundleResource Include="Resources\ic_save@2x.png" />
+    <BundleResource Include="Resources\ic_save@3x.png" />
+    <BundleResource Include="Resources\ic_search.png" />
+    <BundleResource Include="Resources\ic_search@2x.png" />
+    <BundleResource Include="Resources\ic_search@3x.png" />
+    <BundleResource Include="Resources\ic_settings.png" />
+    <BundleResource Include="Resources\ic_settings@2x.png" />
+    <BundleResource Include="Resources\ic_settings@3x.png" />
+    <BundleResource Include="Resources\ic_share.png" />
+    <BundleResource Include="Resources\ic_share@2x.png" />
+    <BundleResource Include="Resources\ic_share@3x.png" />
     <BundleResource Include="Resources\pic_enter_page.png" />
+    <BundleResource Include="Resources\pic_enter_page@2x.png" />
+    <BundleResource Include="Resources\pic_enter_page@3x.png" />
   </ItemGroup>
 </Project>

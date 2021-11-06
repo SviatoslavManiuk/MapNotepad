@@ -2,7 +2,7 @@
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile),
-           ExportFont("Montserrat-Regular.ttf", Alias = "Montserrat"), 
+           ExportFont("Montserrat-Regular.ttf"), 
            ExportFont("Montserrat-Black.ttf"), 
            ExportFont("Montserrat-BlackItalic.ttf"), 
            ExportFont("Montserrat-Bold.ttf"), 

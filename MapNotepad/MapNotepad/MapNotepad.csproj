@@ -25,20 +25,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="View\ViewList\LogInRegister.xaml.cs">
-      <DependentUpon>LogInRegister.xaml</DependentUpon>
+    <Compile Update="View\CreateAccountEmail.xaml.cs">
+      <DependentUpon>CreateAccountEmail.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\ViewList\LogIn.xaml.cs">
-      <DependentUpon>LogIn.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\ViewList\CreateAccountPassword.xaml.cs">
+    <Compile Update="View\CreateAccountPassword.xaml.cs">
       <DependentUpon>CreateAccountPassword.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\ViewList\CreateAccountEmail.xaml.cs">
-      <DependentUpon>CreateAccountEmail.xaml</DependentUpon>
+    <Compile Update="View\LogIn.xaml.cs">
+      <DependentUpon>LogIn.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\LogInRegister.xaml.cs">
+      <DependentUpon>LogInRegister.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

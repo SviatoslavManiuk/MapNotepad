@@ -1,5 +1,7 @@
 using MapNotepad.ViewModel;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace MapNotepad.View
 {
@@ -7,7 +9,8 @@ namespace MapNotepad.View
     {
         public BaseContentPage()
         {
-            BackgroundColor = Color.FromHex("#FEFEFD");
+            BackgroundColor = Color.FromHex(Colors.BASE_COLOR);
+            On<iOS>().SetUseSafeArea(true);
         }
 
         #region -- Overrides --

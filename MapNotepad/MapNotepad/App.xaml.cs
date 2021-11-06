@@ -1,5 +1,5 @@
-﻿using MapNotepad.View.ViewList;
-using MapNotepad.ViewModel.ViewModelList;
+﻿using MapNotepad.View;
+using MapNotepad.ViewModel;
 using Prism.Ioc;
 using Prism.Unity;
 using Xamarin.Forms;

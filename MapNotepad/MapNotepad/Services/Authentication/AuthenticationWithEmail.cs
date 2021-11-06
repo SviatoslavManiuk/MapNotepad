@@ -18,44 +18,53 @@ namespace MapNotepad.Services.Authentication
             _userService = userService;
             _settingsManager = settingsManager;
         }
-        
+
+        #region -- Public Helpers
+
         public async Task<AOResult<UserModel>> SignInAsync(string email, string password)
         {
             var result = new AOResult<UserModel>();
             try
             {
-                var user = await _userService.FindByEmailAsync(email);
-                if (user == null || user.Password != password)
+                var resultFromDB = await _userService.FindByEmailAsync(email);
+                if (!resultFromDB.IsSuccess)
                 {
-                    result.SetFailure(user);
+                    result.SetFailure();
                 }
                 else
                 {
+                    var user = resultFromDB.Result;
                     _settingsManager.UserId = user.Id;
                     result.SetSuccess(user);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                result.SetError($"Exception in: {nameof(SignInAsync)}", "Something went wrong", e);
+                result.SetError($"{nameof(SignInAsync)} exception:", "Something went wrong", ex);
             }
 
             return result;
         }
-
+        
         public async Task<AOResult> SignUpAsync(string email, string password)
         {
             var result = new AOResult();
+            
             try
             {
                 bool success = false;
-                var userInDB = await _userService.FindByEmailAsync(email);
+                var resultFound = await _userService.FindByEmailAsync(email);
                 
-                if (userInDB == null)
+                if (!resultFound.IsSuccess)
                 {
-                    UserModel user = new UserModel() {Email = email, Password = password};
-                    int numRowsInserted = await _userService.InsertAsync(user);
-                    if (numRowsInserted != 0)
+                    var user = new UserModel()
+                    {
+                        Email = email,
+                        Password = password
+                    };
+                    var resultInserted = await _userService.InsertAsync(user);
+                    
+                    if (resultInserted.IsSuccess)
                     {
                         success = true;
                     }
@@ -70,12 +79,14 @@ namespace MapNotepad.Services.Authentication
                     result.SetFailure();
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                result.SetError($"Exception in: {nameof(SignUpAsync)}", "Something went wrong", e);
+                result.SetError($"{nameof(SignUpAsync)} exception: ", "Something went wrong", ex);
             }
 
             return result;
         }
+        
+        #endregion
     }
 }

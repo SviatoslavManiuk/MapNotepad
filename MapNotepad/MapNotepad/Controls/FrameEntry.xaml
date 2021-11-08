@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             x:Name="frameEntry"
+             x:Class="MapNotepad.Controls.FrameEntry"
+             CornerRadius="2"
+             HeightRequest="41"
+             Padding="12, 10"
+             HasShadow="False">
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+            <controls:SimpleEntry Placeholder="{Binding Placeholder, Source={x:Reference frameEntry}}"
+                                  Text="{Binding Text, Source={x:Reference frameEntry}}"
+                                  HorizontalOptions="StartAndExpand"/>
+            <Image Source="{Binding ImageSource, Source={x:Reference frameEntry}}"
+                   WidthRequest="24"
+                   HeightRequest="24">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ImageCommand, Source={x:Reference frameEntry}}"/> 
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </StackLayout>
+</Frame>

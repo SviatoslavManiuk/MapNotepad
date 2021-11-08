@@ -1,0 +1,84 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="6.5.1" />
+    <PackageReference Include="Prism.Unity.Forms" Version="8.1.97" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Fonts" />
+    <Folder Include="Services" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="View\CreateAccountEmail.xaml.cs">
+      <DependentUpon>CreateAccountEmail.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CreateAccountPassword.xaml.cs">
+      <DependentUpon>CreateAccountPassword.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\LogIn.xaml.cs">
+      <DependentUpon>LogIn.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\LogInRegister.xaml.cs">
+      <DependentUpon>LogInRegister.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-Regular.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-Bold.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-BoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-BoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-ExtraBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-ExtraBold.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-ExtraLight.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-Italic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-Italic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-Light.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-LightItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-LightItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-Medium.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-MediumItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-MediumItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-SemiBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-SemiBold.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-Thin.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-Thin.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-ThinItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-ThinItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-BlackItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-BlackItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat\Montserrat-Black.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-Black.ttf" />
+  </ItemGroup>
+</Project>

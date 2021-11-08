@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <view:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                      x:Class="MapNotepad.View.CreateAccountPassword"
-                      xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
-                      xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
+             xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             x:Class="MapNotepad.View.CreateAccountEmailPage">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
                 <controls:TitleNavigationBar Title = "Create an account"/>
             </StackLayout>
             
-            <StackLayout Spacing="8" Padding="16, 0">
-                <controls:LabelEntryError EntryTitle="Password"
-                                          Placeholder="Create password"
+            <StackLayout Spacing="8"
+                         Padding="16, 0">
+                
+                <controls:ExtendedEntry EntryTitle="Name"
+                                          Placeholder="Enter your name"
                                           Text=""
                                           ImageSource="ic_clear.png"
                                           ErrorText=""/>
                 
-                <controls:LabelEntryError EntryTitle="Confirm password"
-                                          Placeholder="Repeat password"
+                <controls:ExtendedEntry EntryTitle="Email"
+                                          Placeholder="Enter email"
                                           Text=""
                                           ImageSource="ic_clear.png"
                                           ErrorText=""/>
             </StackLayout>
             
-            <StackLayout Margin="0,24.5,0,0">
-                <Button Style="{StaticResource BaseButton}"
-                        Text="Create an account"/>
+            <StackLayout Margin="0,25,0,0">
+                <Button Style="{StaticResource BaseButtonStyle}"
+                        Text="Next"/>
                 
                 <controls:Separator></controls:Separator>
                 
@@ -36,7 +38,7 @@
                         BackgroundColor="#FFFFFF"
                         BorderColor="Black"
                         FontFamily="Montserrat-Regular"
-                        Style="{StaticResource BaseButton}"/>
+                        Style="{StaticResource BaseButtonStyle}"/>
             </StackLayout>
             
         </StackLayout>

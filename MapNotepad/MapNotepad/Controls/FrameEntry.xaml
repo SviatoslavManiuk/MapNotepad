@@ -10,10 +10,12 @@
              Padding="12, 10"
              HasShadow="False">
     <StackLayout>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Fill">
             <controls:SimpleEntry Placeholder="{Binding Placeholder, Source={x:Reference frameEntry}}"
                                   Text="{Binding Text, Source={x:Reference frameEntry}}"
                                   HorizontalOptions="StartAndExpand"/>
+            
             <Image Source="{Binding ImageSource, Source={x:Reference frameEntry}}"
                    WidthRequest="24"
                    HeightRequest="24">

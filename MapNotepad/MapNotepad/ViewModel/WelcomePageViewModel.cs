@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace MapNotepad.ViewModel
 {
-    public class LogInRegisterViewModel: BaseViewModel
+    public class LogInRegisterPageViewModel: BaseViewModel
     {
-        public LogInRegisterViewModel(INavigationService navigationService) : base(navigationService)
+        public LogInRegisterPageViewModel(INavigationService navigationService) : base(navigationService)
         {
         }
 
@@ -19,12 +19,12 @@ namespace MapNotepad.ViewModel
         
         private async void OnLogInButtonTap()
         {
-            await NavigationService.NavigateAsync(nameof(LogIn));
+            await NavigationService.NavigateAsync(nameof(LogInPage));
         }
         
         private async void OnCreateAccountButtonTap()
         {
-            await NavigationService.NavigateAsync(nameof(CreateAccountEmail));
+            await NavigationService.NavigateAsync(nameof(CreateAccountEmailPage));
         }
         
         #endregion

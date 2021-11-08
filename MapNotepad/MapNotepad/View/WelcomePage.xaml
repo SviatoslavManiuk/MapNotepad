@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
+             x:Class="MapNotepad.View.WelcomePage">
+    
+            <Grid RowDefinitions="0.7*, 0.3*">
+                <StackLayout Grid.Row="0"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+                    
+                    <Image Source="pic_enter_page.png"
+                           HeightRequest="150"
+                           WidthRequest="190"/>
+                    
+                    <Label Text="MapNotepad"
+                           TextColor="#596EFB"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="18"
+                           FontFamily="Montserrat-Bold"
+                           Margin="28"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1"
+                             VerticalOptions="End">
+                    
+                    <Button Style="{StaticResource BaseButtonStyle}"
+                            Command="{Binding LogInButtonTapCommand}"
+                            Text="Log in"/>
+                    
+                    <Button Text="Create account"
+                            Command="{Binding CreateAccountButtonTapCommand}"
+                            TextColor="#596EFB"
+                            BackgroundColor="#FFFFFF"
+                            BorderColor="Black"
+                            FontFamily="Montserrat"
+                            Style="{StaticResource BaseButtonStyle}"/>
+                </StackLayout>
+            </Grid>
+   
+</view:BaseContentPage>

@@ -4,18 +4,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MapNotepad.Controls.Separator">
     <ContentPage.Content>
-        <StackLayout Orientation="Horizontal" Padding="17, 0" HeightRequest="15">
+        <StackLayout Orientation="Horizontal"
+                     Padding="17, 0"
+                     HeightRequest="15">
+            
             <BoxView HeightRequest="1"
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="Center"
-                     Color="#D7DDE8"></BoxView>
+                     Color="#D7DDE8"/>
+            
             <Label Text="or"
                    TextColor="#D7DDE8"
-                   VerticalOptions="Center"></Label>
+                   VerticalOptions="Center"/>
+            
             <BoxView HeightRequest="1"
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="Center"
-                     Color="#D7DDE8"></BoxView>
+                     Color="#D7DDE8"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentView>

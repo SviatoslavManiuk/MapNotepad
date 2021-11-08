@@ -4,11 +4,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
              x:Name="labelEntryError"
-             x:Class="MapNotepad.Controls.LabelEntryError">
+             x:Class="MapNotepad.Controls.ExtendedEntry">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding EntryTitle, Source={x:Reference labelEntryError}}"
-                   Style="{StaticResource EntryTitle}"/>
+                   Style="{StaticResource EntryTitleStyle}"/>
             
             <controls:FrameEntry BorderColor="{Binding BorderColor, Source={x:Reference labelEntryError}}"
                                  Placeholder="{Binding Placeholder, Source={x:Reference labelEntryError}}"

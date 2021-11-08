@@ -4,10 +4,10 @@ namespace MapNotepad.Services.Settings
 {
     public class SettingsManager: ISettingsManager
     {
-        public int UserId
+        public int AuthorizedUserId
         {
-            get => Preferences.Get(nameof(UserId), -1);
-            set => Preferences.Set(nameof(UserId), value);
+            get => Preferences.Get(nameof(AuthorizedUserId), -1);
+            set => Preferences.Set(nameof(AuthorizedUserId), value);
         }
     }
 }

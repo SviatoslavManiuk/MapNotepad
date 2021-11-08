@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 namespace MapNotepad.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LabelEntryError : ContentView
+    public partial class ExtendedEntry : ContentView
     {
-        public LabelEntryError()
+        public ExtendedEntry()
         {
             InitializeComponent();
         }
@@ -17,7 +17,7 @@ namespace MapNotepad.Controls
         public static readonly BindableProperty EntryTitleProperty = BindableProperty.Create(
             propertyName: nameof(EntryTitle), 
             returnType: typeof(string), 
-            declaringType: typeof(LabelEntryError), 
+            declaringType: typeof(ExtendedEntry), 
             defaultValue: string.Empty,
             BindingMode.TwoWay);
 
@@ -30,7 +30,7 @@ namespace MapNotepad.Controls
         public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(
             propertyName: nameof(BorderColor), 
             returnType: typeof(Color), 
-            declaringType: typeof(LabelEntryError), 
+            declaringType: typeof(ExtendedEntry), 
             defaultValue: Color.FromHex("#D7DDE8"),
             BindingMode.TwoWay);
 
@@ -43,7 +43,7 @@ namespace MapNotepad.Controls
         public static readonly BindableProperty PlaceholderProperty = BindableProperty.Create(
             propertyName: nameof(Placeholder), 
             returnType: typeof(string),
-            declaringType: typeof(LabelEntryError), 
+            declaringType: typeof(ExtendedEntry), 
             defaultValue: string.Empty,
             BindingMode.TwoWay);
 
@@ -56,7 +56,7 @@ namespace MapNotepad.Controls
         public static readonly BindableProperty TextProperty = BindableProperty.Create(
             propertyName: nameof(Text), 
             returnType: typeof(string),
-            declaringType: typeof(LabelEntryError), 
+            declaringType: typeof(ExtendedEntry), 
             defaultValue: string.Empty,
             BindingMode.TwoWay);
 
@@ -69,7 +69,7 @@ namespace MapNotepad.Controls
         public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(
             propertyName: nameof(ImageSource), 
             returnType: typeof(string),
-            declaringType: typeof(LabelEntryError), 
+            declaringType: typeof(ExtendedEntry), 
             defaultValue: string.Empty,
             BindingMode.TwoWay);
 
@@ -82,7 +82,7 @@ namespace MapNotepad.Controls
         public static readonly BindableProperty ImageCommandProperty = BindableProperty.Create(
             propertyName: nameof(ImageCommand), 
             returnType: typeof(ICommand),
-            declaringType: typeof(LabelEntryError), 
+            declaringType: typeof(ExtendedEntry), 
             defaultValue: null,
             BindingMode.TwoWay);
 
@@ -95,7 +95,7 @@ namespace MapNotepad.Controls
         public static readonly BindableProperty ErrorTextProperty = BindableProperty.Create(
             propertyName: nameof(ErrorText), 
             returnType: typeof(string),
-            declaringType: typeof(LabelEntryError), 
+            declaringType: typeof(ExtendedEntry), 
             defaultValue: string.Empty,
             BindingMode.TwoWay);
 
@@ -108,7 +108,7 @@ namespace MapNotepad.Controls
         public static readonly BindableProperty ErrorIsVisibleProperty = BindableProperty.Create(
             propertyName: nameof(ErrorIsVisible), 
             returnType: typeof(bool),
-            declaringType: typeof(LabelEntryError), 
+            declaringType: typeof(ExtendedEntry), 
             defaultValue: false,
             BindingMode.TwoWay);
 

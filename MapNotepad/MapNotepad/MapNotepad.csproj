@@ -25,19 +25,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="View\CreateAccountEmail.xaml.cs">
+    <Compile Update="View\CreateAccountEmailPage.xaml.cs">
       <DependentUpon>CreateAccountEmail.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CreateAccountPassword.xaml.cs">
+    <Compile Update="View\CreateAccountPasswordPage.xaml.cs">
       <DependentUpon>CreateAccountPassword.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\LogIn.xaml.cs">
+    <Compile Update="View\LogInPage.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\LogInRegister.xaml.cs">
+    <Compile Update="View\WelcomePage.xaml.cs">
       <DependentUpon>LogInRegister.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

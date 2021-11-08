@@ -8,12 +8,12 @@ using MapNotepad.Services.Settings;
 
 namespace MapNotepad.Services.Authentication
 {
-    public class AuthenticationWithEmail : IAuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
         private UserService _userService;
         private ISettingsManager _settingsManager;
 
-        public AuthenticationWithEmail(UserService userService, ISettingsManager settingsManager)
+        public AuthenticationService(UserService userService, ISettingsManager settingsManager)
         {
             _userService = userService;
             _settingsManager = settingsManager;
@@ -24,18 +24,28 @@ namespace MapNotepad.Services.Authentication
         public async Task<AOResult<UserModel>> SignInAsync(string email, string password)
         {
             var result = new AOResult<UserModel>();
+            bool success = false;
+            
             try
             {
                 var resultFromDB = await _userService.FindByEmailAsync(email);
-                if (!resultFromDB.IsSuccess)
+                if (resultFromDB.IsSuccess)
                 {
-                    result.SetFailure();
+                    var user = resultFromDB.Result;
+                    if (user.Password == password)
+                    {
+                        success = true;
+                        _settingsManager.AuthorizedUserId = user.Id;
+                    }
+                }
+
+                if (success)
+                {
+                    result.SetSuccess(resultFromDB.Result);
                 }
                 else
                 {
-                    var user = resultFromDB.Result;
-                    _settingsManager.UserId = user.Id;
-                    result.SetSuccess(user);
+                    result.SetFailure();
                 }
             }
             catch (Exception ex)

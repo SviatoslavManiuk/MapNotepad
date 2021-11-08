@@ -19,17 +19,17 @@ namespace MapNotepad
             
             //Navigation
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<LogInRegister, LogInRegisterViewModel>();
-            containerRegistry.RegisterForNavigation<LogIn, LogInViewModel>();
-            containerRegistry.RegisterForNavigation<CreateAccountEmail, CreateAccountEmailViewModel>();
-            containerRegistry.RegisterForNavigation<CreateAccountPassword, CreateAccountPasswordViewModel>();
+            containerRegistry.RegisterForNavigation<WelcomePage, LogInRegisterPageViewModel>();
+            containerRegistry.RegisterForNavigation<LogInPage, LogInViewPageModel>();
+            containerRegistry.RegisterForNavigation<CreateAccountEmailPage, CreateAccountEmailPageViewModel>();
+            containerRegistry.RegisterForNavigation<CreateAccountPasswordPage, CreateAccountPasswordPageViewModel>();
         }
 
         protected override async void OnInitialized()
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync(nameof(LogInRegister));
+            await NavigationService.NavigateAsync(nameof(WelcomePage));
         }
         
         protected override void OnStart()

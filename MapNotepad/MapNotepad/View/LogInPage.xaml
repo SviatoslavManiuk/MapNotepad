@@ -4,30 +4,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
              xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
-             x:Class="MapNotepad.View.CreateAccountEmail">
+             x:Class="MapNotepad.View.LogInPage">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout>
-                <controls:TitleNavigationBar Title = "Create an account"/>
-            </StackLayout>
+           <StackLayout>
+               <controls:TitleNavigationBar Title = "Create an account"/>
+           </StackLayout>
             
-            <StackLayout Spacing="8" Padding="16, 0">
-                <controls:LabelEntryError EntryTitle="Name"
-                                          Placeholder="Enter your name"
-                                          Text=""
+            <StackLayout Spacing="8"
+                         Padding="16, 0">
+                
+                <controls:ExtendedEntry EntryTitle="Email"
+                                          Placeholder="Enter email"
                                           ImageSource="ic_clear.png"
                                           ErrorText=""/>
                 
-                <controls:LabelEntryError EntryTitle="Email"
-                                          Placeholder="Enter email"
-                                          Text=""
+                <controls:ExtendedEntry EntryTitle="Password"
+                                          Placeholder="Enter password"
                                           ImageSource="ic_clear.png"
                                           ErrorText=""/>
             </StackLayout>
             
-            <StackLayout Margin="0,24.5,0,0">
-                <Button Style="{StaticResource BaseButton}"
-                        Text="Next"/>
+            <StackLayout Margin="0,25,0,0">
+                <Button Style="{StaticResource BaseButtonStyle}"
+                        Text="Log in"/>
                 
                 <controls:Separator></controls:Separator>
                 
@@ -36,7 +36,7 @@
                         BackgroundColor="#FFFFFF"
                         BorderColor="Black"
                         FontFamily="Montserrat-Regular"
-                        Style="{StaticResource BaseButton}"/>
+                        Style="{StaticResource BaseButtonStyle}"/>
             </StackLayout>
             
         </StackLayout>

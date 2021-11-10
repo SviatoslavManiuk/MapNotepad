@@ -1,32 +1,41 @@
+using System.Threading.Tasks;
 using System.Windows.Input;
+using MapNotepad.Helpers;
 using MapNotepad.View;
 using Prism.Navigation;
-using Xamarin.Forms;
 
 namespace MapNotepad.ViewModel
 {
-    public class LogInRegisterPageViewModel: BaseViewModel
+    public class WelcomePageViewModel : BaseViewModel
     {
-        public LogInRegisterPageViewModel(INavigationService navigationService) : base(navigationService)
+        public WelcomePageViewModel(INavigationService navigationService) : base(navigationService)
         {
         }
 
-        public ICommand LogInButtonTapCommand => new Command(OnLogInButtonTap);
+        #region -- Public Properties --
         
-        public ICommand CreateAccountButtonTapCommand => new Command(OnCreateAccountButtonTap);
+        private ICommand _logInButtonCommand;
+        public ICommand LogInButtonCommand => _logInButtonCommand ??=
+            SingleExecutionCommand.FromFunc(OnLogInButtonCommandAsync);
 
-        #region --- Private Helpers---
+        private ICommand _createAccountButtonCommand;
+        public ICommand CreateAccountButtonCommand => _createAccountButtonCommand ??= 
+            SingleExecutionCommand.FromFunc(OnCreateAccountButtonCommandAsync);
         
-        private async void OnLogInButtonTap()
+        #endregion
+
+        #region -- Private Helpers--
+
+        private async Task OnLogInButtonCommandAsync()
         {
             await NavigationService.NavigateAsync(nameof(LogInPage));
         }
-        
-        private async void OnCreateAccountButtonTap()
+
+        private async Task OnCreateAccountButtonCommandAsync()
         {
             await NavigationService.NavigateAsync(nameof(CreateAccountEmailPage));
         }
-        
+
         #endregion
     }
 }

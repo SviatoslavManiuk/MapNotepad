@@ -7,8 +7,9 @@
              x:Class="MapNotepad.Controls.FrameEntry"
              CornerRadius="2"
              HeightRequest="41"
-             Padding="12, 10"
+             Padding="12"
              HasShadow="False">
+    
     <StackLayout>
         <StackLayout Orientation="Horizontal"
                      HorizontalOptions="Fill">

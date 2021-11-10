@@ -27,16 +27,20 @@
                              VerticalOptions="End">
                     
                     <Button Style="{StaticResource BaseButtonStyle}"
-                            Command="{Binding LogInButtonTapCommand}"
+                            Command="{Binding LogInButtonCommand}"
                             Text="Log in"/>
                     
-                    <Button Text="Create account"
-                            Command="{Binding CreateAccountButtonTapCommand}"
+                    <Button Style="{StaticResource BaseButtonStyle}"
+                            Command="{Binding CreateAccountButtonCommand}"
+                            Text="Create"/>
+                    
+                    <!--<Button Text="Create account"
+                            Command="{Binding CreateAccountButtonCommand}"
                             TextColor="#596EFB"
                             BackgroundColor="#FFFFFF"
                             BorderColor="Black"
                             FontFamily="Montserrat"
-                            Style="{StaticResource BaseButtonStyle}"/>
+                            Style="{StaticResource BaseButtonStyle}"/>-->
                 </StackLayout>
             </Grid>
    

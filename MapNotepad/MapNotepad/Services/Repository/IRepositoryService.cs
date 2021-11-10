@@ -4,7 +4,7 @@ using SQLite;
 
 namespace MapNotepad.Services.Repository
 {
-    public interface IRepository
+    public interface IRepositoryService
     {
         Task<int> InsertAsync<T>(T entity) where T: IEntityBase, new();
         

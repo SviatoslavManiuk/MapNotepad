@@ -6,16 +6,16 @@ using SQLite;
 
 namespace MapNotepad.Services.Repository
 {
-    public class Repository : IRepository
+    public class RepositoryService : IRepositoryService
     {
         private Lazy<SQLiteAsyncConnection> _database;
 
-        public Repository()
+        public RepositoryService()
         {
             _database = new Lazy<SQLiteAsyncConnection>(()=>
             {
                 string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                    "contacts.db3");
+                    "mapnotepad.db3");
                 var database = new SQLiteAsyncConnection(path);
 
                 database.CreateTableAsync<UserModel>().Wait();

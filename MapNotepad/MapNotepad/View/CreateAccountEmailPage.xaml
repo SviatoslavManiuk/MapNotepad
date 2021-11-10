@@ -8,27 +8,29 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
-                <controls:TitleNavigationBar Title = "Create an account"/>
+                <controls:TitleNavigationBar Title = "Create an account"
+                                             LeftImageCommand="{Binding BackButtonCommand}"/>
             </StackLayout>
             
             <StackLayout Spacing="8"
                          Padding="16, 0">
                 
                 <controls:ExtendedEntry EntryTitle="Name"
-                                          Placeholder="Enter your name"
-                                          Text=""
-                                          ImageSource="ic_clear.png"
-                                          ErrorText=""/>
+                                        Placeholder="Enter your name"
+                                        Text="{Binding Name}"
+                                        ImageSource="ic_clear.png"
+                                        ErrorText=""/>
                 
                 <controls:ExtendedEntry EntryTitle="Email"
-                                          Placeholder="Enter email"
-                                          Text=""
-                                          ImageSource="ic_clear.png"
-                                          ErrorText=""/>
+                                        Placeholder="Enter email"
+                                        Text="{Binding Email}"
+                                        ImageSource="ic_clear.png"
+                                        ErrorText=""/>
             </StackLayout>
             
             <StackLayout Margin="0,25,0,0">
                 <Button Style="{StaticResource BaseButtonStyle}"
+                        Command="{Binding NextButtonCommand}"
                         Text="Next"/>
                 
                 <controls:Separator></controls:Separator>

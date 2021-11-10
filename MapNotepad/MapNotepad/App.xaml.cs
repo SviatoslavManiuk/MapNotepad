@@ -1,4 +1,7 @@
-﻿using MapNotepad.View;
+﻿using MapNotepad.Services.Authentication;
+using MapNotepad.Services.Repository;
+using MapNotepad.Services.Settings;
+using MapNotepad.View;
 using MapNotepad.ViewModel;
 using Prism.Ioc;
 using Prism.Unity;
@@ -16,11 +19,15 @@ namespace MapNotepad
         
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            // Services
+            containerRegistry.RegisterInstance<ISettingsManager>(Container.Resolve<SettingsManager>());
+            containerRegistry.RegisterInstance<IRepositoryService>(Container.Resolve<RepositoryService>());
+            containerRegistry.RegisterInstance<IAuthenticationService>(Container.Resolve<AuthenticationService>());
             
-            //Navigation
+            // Navigation
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<WelcomePage, LogInRegisterPageViewModel>();
-            containerRegistry.RegisterForNavigation<LogInPage, LogInViewPageModel>();
+            containerRegistry.RegisterForNavigation<WelcomePage, WelcomePageViewModel>();
+            containerRegistry.RegisterForNavigation<LogInPage, LogInPageViewModel>();
             containerRegistry.RegisterForNavigation<CreateAccountEmailPage, CreateAccountEmailPageViewModel>();
             containerRegistry.RegisterForNavigation<CreateAccountPasswordPage, CreateAccountPasswordPageViewModel>();
         }

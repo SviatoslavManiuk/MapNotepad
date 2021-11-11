@@ -1,4 +1,4 @@
-﻿using MapNotepad.Services.Authentication;
+using MapNotepad.Services.Authentication;
 using MapNotepad.Services.Repository;
 using MapNotepad.Services.Settings;
 using MapNotepad.View;
@@ -31,13 +31,14 @@ namespace MapNotepad
             containerRegistry.RegisterForNavigation<CreateAccountEmailPage, CreateAccountEmailPageViewModel>();
             containerRegistry.RegisterForNavigation<CreateAccountPasswordPage, CreateAccountPasswordPageViewModel>();
             containerRegistry.RegisterForNavigation<MapPage>();
+            containerRegistry.RegisterForNavigation<AddPinPage, AddPinPageViewModel>();
         }
 
         protected override async void OnInitialized()
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync(nameof(MapPage));
+            await NavigationService.NavigateAsync(nameof(AddPinPage));
         }
         
         protected override void OnStart()

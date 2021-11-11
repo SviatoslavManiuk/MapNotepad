@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.maniuk.mapnotepad">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
 	<application android:label="MapNotepad.Android" android:theme="@style/MainTheme">
-		<meta-data android:name = "com.google.android.maps.v2.API_KEY" android:value = "AIzaSyDReA4uqaGXphxWcX8Zbm601geCdzndLow" />
+		<meta-data android:name = "com.google.android.maps.v2.API_KEY" android:value = "AIzaSyCJbLogpb5ZSM7vYxncVUfUZgIu_gP6GR4" />
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-feature android:name="android.hardware.location.gps" />

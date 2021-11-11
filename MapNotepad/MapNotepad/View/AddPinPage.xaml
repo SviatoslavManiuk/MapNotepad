@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
+             xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             xmlns:gmaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="MapNotepad.View.AddPinPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:TitleNavigationBar Title="{Binding Title}"
+                                         LeftImageCommand="{Binding BackButtonCommand}"
+                                         RightImageSource="ic_save.png"
+                                         RightImageCommand="{Binding SaveCommand}"/>
+            
+            <BoxView HeightRequest="1"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="Center"
+                     Color="#D7DDE8"/>
+            
+            <StackLayout Spacing="8"
+                         Padding="16, 0">
+                
+                <controls:ExtendedEntry EntryTitle="Label"
+                                        Placeholder="Enter the label"
+                                        Text="{Binding Label}"
+                                        ErrorIsVisible="False"/>
+                
+                <controls:ExtendedEntry EntryTitle="Description"
+                                        Placeholder="Write a description"
+                                        Text="{Binding Description}"
+                                        ErrorIsVisible="False"/>
+                
+                <Label Text="Coordinates"
+                       Style="{StaticResource EntryTitleStyle}"/>
+                <StackLayout Orientation="Horizontal" HeightRequest="41">
+                    <controls:FrameEntry Placeholder="Longitude"
+                                                 Text="{Binding Longitude}"
+                                                 HorizontalOptions="StartAndExpand"
+                                                 VerticalOptions="Center"/>
+                    
+                    <controls:FrameEntry Placeholder="Latitude"
+                                         Text="{Binding Latitude}"
+                                         HorizontalOptions="EndAndExpand"
+                                         VerticalOptions="Center"/>
+                </StackLayout>
+                
+                <!--<gmaps:Map/>-->
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</view:BaseContentPage>

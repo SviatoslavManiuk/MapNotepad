@@ -88,7 +88,7 @@ namespace MapNotepad.ViewModel
         {
             if (!Regex.IsMatch(Email, @"^\S{1,64}@\S{1,64}$"))
             {
-                UserDialogs.Instance.Alert("Email must match the format: {64 symbols @ 64 symbols}");
+                //UserDialogs.Instance.Alert("Email must match the format: {64 symbols @ 64 symbols}");
                 return false;
             }
 

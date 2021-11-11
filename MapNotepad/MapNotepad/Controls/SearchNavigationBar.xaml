@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             x:Name="NavigationBar"
+             x:Class="MapNotepad.Controls.SearchNavigationBar">
+    <ContentPage.Content>
+        <StackLayout Orientation="Horizontal"
+                     HeightRequest="48"
+                     Padding="17, 12">
+            
+            <ImageButton VerticalOptions="Center"
+                         HorizontalOptions="Start"
+                         HeightRequest="30"
+                         WidthRequest="30"
+                         BackgroundColor="Transparent"
+                         Source="{Binding LeftImageSource, Source = { x:Reference NavigationBar}}"
+                         Command="{Binding LeftImageCommand, Source = { x:Reference NavigationBar}}"/>
+            
+            <!--<BoxView Background="{Binding SearchBackground}"
+                     CornerRadius="4">
+                <controls:SimpleEntry Text="{Binding Text}"/>
+            </BoxView>-->
+            <controls:FrameEntry BorderColor="Transparent"
+                                 CornerRadius="4"
+                                 Text="{Binding Text}"
+                                 Background="{Binding BackgroundColor}"
+                                 ImageSource="ic_clear.png"/>
+            
+            <ImageButton HorizontalOptions="End"
+                         VerticalOptions="Center"
+                         HeightRequest="30"
+                         WidthRequest="30"
+                         Source="{Binding RightImageSource, Source = { x:Reference NavigationBar}}"
+                         Command="{Binding RightImageCommand, Source = { x:Reference NavigationBar}}"
+                         BackgroundColor="Transparent"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

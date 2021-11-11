@@ -5,6 +5,9 @@
              xmlns:gmaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              x:Class="MapNotepad.View.MapPage">
     <ContentPage.Content>
-        <gmaps:Map x:Name="MyMap" MapType="Street"/>
+        <StackLayout>
+            
+            <gmaps:Map x:Name="MyMap" MapType="Street"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

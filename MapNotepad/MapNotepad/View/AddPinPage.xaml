@@ -43,7 +43,6 @@
                                              BorderColor="#D7DDE8"/>
                         
                         <controls:FrameEntry Placeholder="Latitude"
-                                             CornerRadius="5"
                                              Text="{Binding Latitude}"
                                              VerticalOptions="Center"
                                              HorizontalOptions="FillAndExpand"
@@ -51,12 +50,12 @@
                     </StackLayout>
                 </StackLayout>
                 
-                <StackLayout>
-                    <gmaps:Map></gmaps:Map>
-                </StackLayout>
-                
             </StackLayout>
             
+            <StackLayout VerticalOptions="FillAndExpand"
+                         Padding="0,20,0,0">
+                <gmaps:Map></gmaps:Map>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </view:BaseContentPage>

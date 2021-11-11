@@ -32,17 +32,17 @@ namespace MapNotepad.ViewModel
             set => SetProperty(ref _description, value);
         }
         
-        private double _longitude;
+        private double? _longitude;
 
-        public double Longitude
+        public double? Longitude
         {
             get => _longitude;
             set => SetProperty(ref _longitude, value);
         }
         
-        private double _latitude;
+        private double? _latitude;
 
-        public double Latitude
+        public double? Latitude
         {
             get => _latitude;
             set => SetProperty(ref _latitude, value);

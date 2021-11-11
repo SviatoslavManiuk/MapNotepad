@@ -18,7 +18,7 @@
                      VerticalOptions="Center"
                      Color="#D7DDE8"/>
             
-            <StackLayout Spacing="8"
+            <StackLayout Spacing="21"
                          Padding="16, 0">
                 
                 <controls:ExtendedEntry EntryTitle="Label"
@@ -31,21 +31,30 @@
                                         Text="{Binding Description}"
                                         ErrorIsVisible="False"/>
                 
-                <Label Text="Coordinates"
-                       Style="{StaticResource EntryTitleStyle}"/>
-                <StackLayout Orientation="Horizontal" HeightRequest="41">
-                    <controls:FrameEntry Placeholder="Longitude"
-                                                 Text="{Binding Longitude}"
-                                                 HorizontalOptions="StartAndExpand"
-                                                 VerticalOptions="Center"/>
+                <StackLayout>
+                    <Label Text="Coordinates"
+                           Style="{StaticResource EntryTitleStyle}"/>
                     
-                    <controls:FrameEntry Placeholder="Latitude"
-                                         Text="{Binding Latitude}"
-                                         HorizontalOptions="EndAndExpand"
-                                         VerticalOptions="Center"/>
+                    <StackLayout Orientation="Horizontal">
+                        <controls:FrameEntry Text="{Binding Longitude}"
+                                             Placeholder="Longitude"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="FillAndExpand"
+                                             BorderColor="#D7DDE8"/>
+                        
+                        <controls:FrameEntry Placeholder="Latitude"
+                                             CornerRadius="5"
+                                             Text="{Binding Latitude}"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="FillAndExpand"
+                                             BorderColor="#D7DDE8"/>
+                    </StackLayout>
                 </StackLayout>
                 
-                <!--<gmaps:Map/>-->
+                <StackLayout>
+                    <gmaps:Map></gmaps:Map>
+                </StackLayout>
+                
             </StackLayout>
             
         </StackLayout>

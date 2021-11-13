@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,7 +5,7 @@ using Xamarin.Forms.Xaml;
 namespace MapNotepad.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SearchNavigationBar : ContentPage
+    public partial class SearchNavigationBar : ContentView
     {
         public SearchNavigationBar()
         {
@@ -57,6 +52,19 @@ namespace MapNotepad.Controls
             get => (string)GetValue(TextProperty);
             set => SetValue(TextProperty, value);
         }
+        
+        public static readonly BindableProperty PlaceholderProperty = BindableProperty.Create(
+            propertyName: nameof(Placeholder), 
+            returnType: typeof(string),
+            declaringType: typeof(SearchNavigationBar), 
+            defaultValue: string.Empty,
+            BindingMode.TwoWay);
+        
+        public string Placeholder
+        {
+            get => (string)GetValue(PlaceholderProperty);
+            set => SetValue(PlaceholderProperty, value);
+        }
 
         public static readonly BindableProperty EntryBackgroundProperty = BindableProperty.Create(
             propertyName: nameof(EntryBackground), 
@@ -70,12 +78,38 @@ namespace MapNotepad.Controls
             get => (Color)GetValue(EntryBackgroundProperty);
             set => SetValue(EntryBackgroundProperty, value);
         }
+        
+        public static readonly BindableProperty EntryImageCommandProperty = BindableProperty.Create(
+            propertyName: nameof(EntryImageCommand), 
+            returnType: typeof(ICommand), 
+            declaringType: typeof(SearchNavigationBar), 
+            defaultValue: null,
+            BindingMode.TwoWay);
+
+        public ICommand EntryImageCommand
+        {
+            get => (ICommand)GetValue(EntryImageCommandProperty);
+            set => SetValue(EntryImageCommandProperty, value);
+        }
+        
+        public static readonly BindableProperty IsEntryImageVisibleProperty = BindableProperty.Create(
+            propertyName: nameof(IsEntryImageVisible), 
+            returnType: typeof(bool), 
+            declaringType: typeof(SearchNavigationBar), 
+            defaultValue: false,
+            BindingMode.TwoWay);
+
+        public bool IsEntryImageVisible
+        {
+            get => (bool)GetValue(IsEntryImageVisibleProperty);
+            set => SetValue(IsEntryImageVisibleProperty, value);
+        }
 
         public static readonly BindableProperty RightImageSourceProperty = BindableProperty.Create(
             propertyName: nameof(RightImageSource), 
             returnType: typeof(string), 
             declaringType: typeof(SearchNavigationBar), 
-            defaultValue: string.Empty,
+            defaultValue: "ic_exid.png",
             BindingMode.TwoWay);
         
         public string RightImageSource

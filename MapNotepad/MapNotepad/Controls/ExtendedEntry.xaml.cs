@@ -31,7 +31,7 @@ namespace MapNotepad.Controls
             propertyName: nameof(BorderColor), 
             returnType: typeof(Color), 
             declaringType: typeof(ExtendedEntry), 
-            defaultValue: Color.FromHex("#D7DDE8"),
+            defaultValue: Color.FromHex(Colors.ENTRY_BORDER_COLOR),
             BindingMode.TwoWay);
 
         public Color BorderColor

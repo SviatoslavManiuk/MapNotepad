@@ -18,7 +18,7 @@ namespace MapNotepad.Droid.Renderers
             base.OnElementChanged(args);
             if (Control != null)
             {
-                Control.SetBackgroundColor(new Android.Graphics.Color(254,254, 253));
+                Control.SetBackgroundColor(Android.Graphics.Color.Transparent);
                 Control.SetPadding(0,0,0,0);
             }
         }

@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MapNotepad.View
+namespace MapNotepad.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MapPage : BaseContentPage
+    public partial class HorizontalLine : BoxView
     {
-        public MapPage()
+        public HorizontalLine()
         {
             InitializeComponent();
-
-            map.UiSettings.ZoomControlsEnabled = false;
         }
     }
 }

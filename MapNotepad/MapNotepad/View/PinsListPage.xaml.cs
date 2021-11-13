@@ -10,13 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace MapNotepad.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MapPage : BaseContentPage
+    public partial class PinsListPage : BaseContentPage
     {
-        public MapPage()
+        public PinsListPage()
         {
             InitializeComponent();
-
-            map.UiSettings.ZoomControlsEnabled = false;
         }
     }
 }

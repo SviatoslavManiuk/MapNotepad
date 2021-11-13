@@ -34,13 +34,6 @@
                             Command="{Binding CreateAccountButtonCommand}"
                             Text="Create"/>
                     
-                    <!--<Button Text="Create account"
-                            Command="{Binding CreateAccountButtonCommand}"
-                            TextColor="#596EFB"
-                            BackgroundColor="#FFFFFF"
-                            BorderColor="Black"
-                            FontFamily="Montserrat"
-                            Style="{StaticResource BaseButtonStyle}"/>-->
                 </StackLayout>
             </Grid>
    

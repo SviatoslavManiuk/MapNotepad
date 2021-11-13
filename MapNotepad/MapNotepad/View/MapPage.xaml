@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<view:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:gmaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
              x:Class="MapNotepad.View.MapPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Spacing="0">
+            <controls:SearchNavigationBar Placeholder="Search"
+                                          Text="{Binding SearchText}"
+                                          IsEntryImageVisible="{Binding IsEntryImageVisible}"/>
             
-            <gmaps:Map x:Name="MyMap" MapType="Street"/>
+            <Grid RowDefinitions="*"
+                  VerticalOptions="FillAndExpand">
+                <gmaps:Map x:Name="map"
+                           Grid.Row="0"
+                           MapType="Street"/>
+                
+                <ImageButton Grid.Row="0"
+                             Source="ic_location.png"
+                             CornerRadius="50"
+                             BackgroundColor="#FEFEFD"
+                             Margin="0,0,20,22" 
+                             HorizontalOptions="End"
+                             VerticalOptions="End"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             Command="{Binding UserLocationCommand}"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</view:BaseContentPage>

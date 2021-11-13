@@ -13,10 +13,7 @@
                                          RightImageSource="ic_save.png"
                                          RightImageCommand="{Binding SaveCommand}"/>
             
-            <BoxView HeightRequest="1"
-                     HorizontalOptions="FillAndExpand"
-                     VerticalOptions="Center"
-                     Color="#D7DDE8"/>
+            <controls:HorizontalLine/>
             
             <StackLayout Spacing="21"
                          Padding="16, 0">

@@ -30,7 +30,9 @@ namespace MapNotepad
             containerRegistry.RegisterForNavigation<LogInPage, LogInPageViewModel>();
             containerRegistry.RegisterForNavigation<CreateAccountEmailPage, CreateAccountEmailPageViewModel>();
             containerRegistry.RegisterForNavigation<CreateAccountPasswordPage, CreateAccountPasswordPageViewModel>();
-            containerRegistry.RegisterForNavigation<MapPage>();
+            containerRegistry.RegisterForNavigation<MapPage, MapPageViewModel>();
+            containerRegistry.RegisterForNavigation<PinsListPage, PinsListPageViewModel>();
+            containerRegistry.RegisterForNavigation<MainTabbedPage>();
             containerRegistry.RegisterForNavigation<AddPinPage, AddPinPageViewModel>();
         }
 
@@ -38,7 +40,7 @@ namespace MapNotepad
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync(nameof(AddPinPage));
+            await NavigationService.NavigateAsync(nameof(MainTabbedPage));
         }
         
         protected override void OnStart()

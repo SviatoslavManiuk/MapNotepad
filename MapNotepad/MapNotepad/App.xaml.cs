@@ -1,6 +1,6 @@
 using MapNotepad.Services.Authentication;
 using MapNotepad.Services.Repository;
-using MapNotepad.Services.Settings;
+using MapNotepad.Services.SettingsManager;
 using MapNotepad.View;
 using MapNotepad.ViewModel;
 using Prism.Ioc;

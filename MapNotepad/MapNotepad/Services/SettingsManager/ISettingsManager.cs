@@ -1,4 +1,4 @@
-namespace MapNotepad.Services.Settings
+namespace MapNotepad.Services.SettingsManager
 {
     public interface ISettingsManager
     {

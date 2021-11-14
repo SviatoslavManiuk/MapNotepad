@@ -88,9 +88,9 @@ namespace MapNotepad.Services.EntityServices
             return result;
         }
 
-        public async Task<AOResult<List<PinModel>>> GetPinsByUserAsync(int userId)
+        public async Task<AOResult<IEnumerable<PinModel>>> GetPinsByUserAsync(int userId)
         {
-            var result = new AOResult<List<PinModel>>();
+            var result = new AOResult<IEnumerable<PinModel>>();
             
             try
             {
@@ -111,5 +111,30 @@ namespace MapNotepad.Services.EntityServices
 
             return result;
         }
+        
+        public async Task<AOResult<PinModel>> FindByCoordinatesAsync(double longitude, double latitude)
+        {
+            var result = new AOResult<PinModel>();
+            
+            try
+            {
+                var pin = await _repositoryService.FindWithQueryAsync<PinModel>("SELECT * FROM Pin WHERE Longitude = ? And Latidude = ?", longitude, latitude);
+                if (pin != null)
+                {
+                    result.SetSuccess(pin);
+                }
+                else
+                {
+                    result.SetFailure();
+                }
+            }
+            catch (Exception ex)
+            {
+                result.SetError($"{nameof(FindByCoordinatesAsync)} exception: ", "Something went wrong", ex);
+            }
+
+            return result;
+        }
+        
     }
 }

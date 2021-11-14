@@ -1,6 +1,6 @@
 using Xamarin.Essentials;
 
-namespace MapNotepad.Services.Settings
+namespace MapNotepad.Services.SettingsManager
 {
     public class SettingsManager: ISettingsManager
     {

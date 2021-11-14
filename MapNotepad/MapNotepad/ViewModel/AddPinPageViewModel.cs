@@ -1,15 +1,28 @@
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MapNotepad.Helpers;
+using MapNotepad.Model;
+using MapNotepad.Services.EntityServices;
+using MapNotepad.Services.Extensions;
 using Prism.Navigation;
 
 namespace MapNotepad.ViewModel
 {
+    // TODO: replace exceptions on some logic
     public class AddPinPageViewModel : BaseViewModel
     {
-        public AddPinPageViewModel(INavigationService navigationService) : base(navigationService)
+        private PinService _pinService;
+        
+        private int _userId;
+        private int _pinId;
+        private double _longitude;
+        private double _latitude;
+        private bool _isSelected;
+        
+        public AddPinPageViewModel(INavigationService navigationService, PinService pinService) : base(navigationService)
         {
-            Title = "Add Pin";
+            _pinService = pinService;
         }
         
         #region -- Public Properties --
@@ -31,21 +44,21 @@ namespace MapNotepad.ViewModel
             get => _description;
             set => SetProperty(ref _description, value);
         }
-        
-        private double? _longitude;
 
-        public double? Longitude
+        private string _longitudeEntry;
+
+        public string LongitudeEntry
         {
-            get => _longitude;
-            set => SetProperty(ref _longitude, value);
+            get => _longitudeEntry;
+            set => SetProperty(ref _longitudeEntry, value);
         }
         
-        private double? _latitude;
+        private string _latitudeEntry;
 
-        public double? Latitude
+        public string LatitudeEntry
         {
-            get => _latitude;
-            set => SetProperty(ref _latitude, value);
+            get => _latitudeEntry;
+            set => SetProperty(ref _latitudeEntry, value);
         }
 
         private ICommand _backButtonCommand;
@@ -58,10 +71,81 @@ namespace MapNotepad.ViewModel
         
         #endregion
 
-        #region -- Private Helpers --
+        #region -- Overrides --
 
+        public override void Initialize(INavigationParameters parameters)
+        {
+            base.Initialize(parameters);
+            
+            var parameter = parameters[nameof(PinModel)];
+            if (parameter is PinModel pin)
+            {
+                _pinId = pin.Id;
+                _userId = pin.UserId;
+                
+                if (pin.Id == 0)
+                {
+                    _isSelected = true;
+                    Title = "Add pin";
+                }
+                else
+                {
+                    Label = pin.Label;
+                    Description = pin.Description;
+                    _longitude = pin.Longitude;
+                    LongitudeEntry = pin.Longitude.ToString();
+                    _latitude = pin.Latitude;
+                    LatitudeEntry = pin.Latitude.ToString();
+                    _isSelected = pin.IsSelected;
+                    Title = "Edit pin";
+                }
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
+        #endregion
+
+        #region -- Private Helpers --
+        
         private async Task OnSaveCommandAsync()
         {
+            var pin = new PinModel()
+            {
+                UserId = _userId,
+                Label = Label,
+                Description = Description,
+                Longitude = _longitude,
+                Latitude = _latitude,
+                IsSelected = _isSelected
+            };
+            
+            var parameters = new NavigationParameters();
+            
+            if (_pinId == 0)
+            {
+                await _pinService.InsertAsync(pin);
+                var result = await _pinService.FindByCoordinatesAsync(_longitude, _latitude);
+                if (result.IsSuccess)
+                {
+                    pin.Id = result.Result.Id;
+                    parameters.Add(Constants.Navigation.NEW_PIN_PARAMETER, pin.ToPinViewModel());
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            else
+            {
+                pin.Id = _pinId;
+                await _pinService.UpdateAsync(pin);
+                parameters.Add(Constants.Navigation.EDITED_PIN_PARAMETER, pin.ToPinViewModel());
+            }
+
+            await NavigationService.GoBackAsync(parameters);
         }
         
         #endregion

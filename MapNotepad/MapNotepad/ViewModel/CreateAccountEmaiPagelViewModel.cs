@@ -82,17 +82,15 @@ namespace MapNotepad.ViewModel
                 
                 await NavigationService.NavigateAsync(nameof(CreateAccountPasswordPage), parameters);
             }
+            else
+            {
+                //UserDialogs.Instance.Alert("Email must match the format: {64 symbols @ 64 symbols}");
+            }
         }
 
         private bool IsEmailValid()
         {
-            if (!Regex.IsMatch(Email, @"^\S{1,64}@\S{1,64}$"))
-            {
-                //UserDialogs.Instance.Alert("Email must match the format: {64 symbols @ 64 symbols}");
-                return false;
-            }
-
-            return true;
+            return Regex.IsMatch(Email, @"^\S{1,64}@\S{1,64}$");
         }
         
         #endregion

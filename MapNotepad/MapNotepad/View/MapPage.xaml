@@ -17,7 +17,15 @@
                   VerticalOptions="FillAndExpand">
                 <gmaps:Map x:Name="map"
                            Grid.Row="0"
-                           MapType="Street"/>
+                           MapType="Street"
+                           ItemsSource="{Binding Pins}">
+                    <gmaps:Map.ItemTemplate>
+                        <DataTemplate>
+                            <gmaps:Pin Position="{Binding Position}"
+                                       Label="{Binding Name}" />
+                        </DataTemplate>
+                    </gmaps:Map.ItemTemplate>
+                </gmaps:Map>
                 
                 <ImageButton Grid.Row="0"
                              Source="ic_location.png"

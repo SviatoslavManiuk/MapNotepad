@@ -66,11 +66,11 @@ namespace MapNotepad.ViewModel
         {
             if (Password != ConfirmPassword)
             {
-                
+                UserDialogs.Instance.Alert("Password mismatch");
             }
             else if (!IsPasswordValid())
             {
-                
+                UserDialogs.Instance.Alert("Password must have at least 6 symbols at minimum have one digit and one uppercase letter!");
             }
             else
             {

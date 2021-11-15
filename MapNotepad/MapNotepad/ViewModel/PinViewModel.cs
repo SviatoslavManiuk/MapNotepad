@@ -1,4 +1,5 @@
 using Prism.Mvvm;
+using Xamarin.Forms.GoogleMaps;
 
 namespace MapNotepad.ViewModel
 {
@@ -12,6 +13,7 @@ namespace MapNotepad.ViewModel
             Label = label;
             Longitude = longitude.ToString();
             Latitude = latitude.ToString();
+            this.Position = new Position(latitude, longitude);
             IsSelected = isSelected;
             
             if (isSelected)
@@ -50,7 +52,15 @@ namespace MapNotepad.ViewModel
             get => _label;
             set => SetProperty(ref _label, value);
         }
-        
+
+        private Position _position;
+
+        public Position Position
+        {
+            get => _position;
+            set => SetProperty(ref _position, value);
+        }
+
         private string _longitude;
         public string Longitude
         {

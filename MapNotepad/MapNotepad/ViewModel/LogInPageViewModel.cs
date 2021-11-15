@@ -85,18 +85,18 @@ namespace MapNotepad.ViewModel
 
         #region -- Overrides
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
+        public override void Initialize(INavigationParameters parameters)
         {
-            base.OnNavigatedTo(parameters);
+            base.Initialize(parameters);
             
             var email = parameters[Constants.Navigation.EMAIL_PARAMETER];
             if (email != null)
             {
                 Email = (string) email;
-                IsEmailError = false;
-                IsPasswordImageVisible = false;
-                IsEmailClearImageVisible = false;
             }
+            IsEmailError = false;
+            IsPasswordImageVisible = false;
+            IsEmailClearImageVisible = false;
         }
 
         #endregion
@@ -108,18 +108,19 @@ namespace MapNotepad.ViewModel
             var user = result.Result;
             if (result.IsSuccess)
             {
-                
+                var parameters = new NavigationParameters();
+                parameters.Add(Constants.Navigation.AUTHORIZED_USER_ID_PARAMETER, user.Id);
             }
             else if(user == null)
             {
                 IsEmailError = true;
                 PasswordErrorIsVisible = false;
-                PasswordBorderColor = Color.Green;
+                PasswordBorderColor = Color.FromHex(Colors.ENTRY_BORDER_COLOR);
             }
             else if (user.Password != Password)
             {
                 PasswordErrorIsVisible = true;
-                PasswordBorderColor = Color.Red;
+                PasswordBorderColor = Color.FromHex(Colors.ERROR_ENTRY_BORDER_COLOR);
             }
         }
         

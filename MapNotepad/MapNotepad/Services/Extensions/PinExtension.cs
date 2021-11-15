@@ -13,16 +13,13 @@ namespace MapNotepad.Services.Extensions
 
         public static PinModel ToPinModel(this PinViewModel pinViewModel)
         {
-            Double.TryParse(pinViewModel.Longitude, out double longitude);
-            Double.TryParse(pinViewModel.Latitude, out double latitude);
-
             return new PinModel()
             {
                 Id = pinViewModel.Id,
                 UserId = pinViewModel.UserId,
                 Label = pinViewModel.Label,
-                Longitude = longitude,
-                Latitude = latitude,
+                Longitude = pinViewModel.Position.Longitude,
+                Latitude = pinViewModel.Position.Latitude,
                 IsSelected = pinViewModel.IsSelected
             };
         }

@@ -3,6 +3,7 @@ using System.Windows.Input;
 using MapNotepad.Helpers;
 using MapNotepad.Services.Authentication;
 using Prism.Navigation;
+using Xamarin.Forms;
 
 namespace MapNotepad.ViewModel
 {
@@ -32,6 +33,42 @@ namespace MapNotepad.ViewModel
             set => SetProperty(ref _password, value);
         }
 
+        private bool _isEmailClearImageVisible;
+        public bool IsEmailClearImageVisible
+        {
+            get => _isEmailClearImageVisible;
+            set => SetProperty(ref _isEmailClearImageVisible, value);
+        }
+
+        private bool _isEmailError;
+        public bool IsEmailError
+        {
+            get => _isEmailError;
+            set => SetProperty(ref _isEmailError, value);
+        }
+        
+        private bool _passwordErrorIsVisible;
+        public bool PasswordErrorIsVisible
+        {
+            get => _passwordErrorIsVisible;
+            set => SetProperty(ref _passwordErrorIsVisible, value);
+        }
+
+        private Color _passwordBorderColor;
+        public Color PasswordBorderColor
+        {
+            get => _passwordBorderColor;
+            set => SetProperty(ref _passwordBorderColor, value);
+        }
+        
+        private bool _isPasswordImageVisible;
+        public bool IsPasswordImageVisible
+        {
+            get => _isPasswordImageVisible;
+            set => SetProperty(ref _isPasswordImageVisible, value);
+        }
+        
+
         private ICommand _backButtonCommand;
         public ICommand BackButtonCommand => _backButtonCommand ??=
             SingleExecutionCommand.FromFunc(OnBackButtonCommandAsync);
@@ -39,6 +76,10 @@ namespace MapNotepad.ViewModel
         private ICommand _logInCommand;
         public ICommand LogInCommand => _logInCommand ??= 
             SingleExecutionCommand.FromFunc(OnLogInCommandAsync);
+        
+        private ICommand _emailClearCommand;
+        public ICommand EmailClearCommand => _emailClearCommand ??= 
+            SingleExecutionCommand.FromFunc(OnEmailClearCommandAsync);
         
         #endregion
 
@@ -52,6 +93,9 @@ namespace MapNotepad.ViewModel
             if (email != null)
             {
                 Email = (string) email;
+                IsEmailError = false;
+                IsPasswordImageVisible = false;
+                IsEmailClearImageVisible = false;
             }
         }
 
@@ -60,6 +104,29 @@ namespace MapNotepad.ViewModel
         #region -- Private Helpers --
         private async Task OnLogInCommandAsync()
         {
+            var result = await _authenticationService.SignInAsync(Email, Password);
+            var user = result.Result;
+            if (result.IsSuccess)
+            {
+                
+            }
+            else if(user == null)
+            {
+                IsEmailError = true;
+                PasswordErrorIsVisible = false;
+                PasswordBorderColor = Color.Green;
+            }
+            else if (user.Password != Password)
+            {
+                PasswordErrorIsVisible = true;
+                PasswordBorderColor = Color.Red;
+            }
+        }
+        
+        private Task OnEmailClearCommandAsync()
+        {
+            Email = string.Empty;
+            return Task.CompletedTask;
         }
         
         #endregion

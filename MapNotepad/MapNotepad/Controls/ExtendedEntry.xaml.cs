@@ -118,6 +118,19 @@ namespace MapNotepad.Controls
             set => SetValue(ErrorIsVisibleProperty, value);
         }
         
+        public static readonly BindableProperty IsImageVisibleProperty = BindableProperty.Create(
+            propertyName: nameof(IsImageVisible), 
+            returnType: typeof(bool), 
+            declaringType: typeof(FrameEntry), 
+            defaultValue: false,
+            BindingMode.TwoWay);
+
+        public bool IsImageVisible
+        {
+            get => (bool)GetValue(IsImageVisibleProperty);
+            set => SetValue(IsImageVisibleProperty, value);
+        }
+        
         #endregion
     }
 }

@@ -11,16 +11,16 @@
             <BoxView HeightRequest="1"
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="Center"
-                     Color="#D7DDE8"/>
+                     Color="{StaticResource LineColor}"/>
             
             <Label Text="or"
-                   TextColor="#D7DDE8"
+                   TextColor="{StaticResource LineColor}"
                    VerticalOptions="Center"/>
             
             <BoxView HeightRequest="1"
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="Center"
-                     Color="#D7DDE8"/>
+                     Color="{StaticResource LineColor}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentView>

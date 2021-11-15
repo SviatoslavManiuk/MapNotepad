@@ -4,10 +4,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
              xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             xmlns:translateService="clr-namespace:MapNotepad.Services.TranslateService;assembly=MapNotepad"
              x:Class="MapNotepad.View.PinsListPage">
     <ContentPage.Content>
         <StackLayout Spacing="0">
-            <controls:SearchNavigationBar Placeholder="Search"
+            <controls:SearchNavigationBar Placeholder="{translateService:Translate SearchPlaceholder}"
                                           Text="{Binding SearchText}"
                                           IsEntryImageVisible="{Binding IsEntryImageVisible}"/>
             
@@ -30,7 +31,7 @@
                                                          Padding="0,0,12, 0"
                                                          HeightRequest="45"
                                                          WidthRequest="45"
-                                                         BackgroundColor="#F1F3FD"
+                                                         BackgroundColor="{StaticResource IsFavouriteBackgroundColor}"
                                                          CornerRadius="6"
                                                          Source="{Binding FavouriteIcon}"
                                                          VerticalOptions="Center">
@@ -72,7 +73,7 @@
                 <ImageButton Grid.Row="0"
                              Source="ic_plus.png"
                              CornerRadius="50"
-                             BackgroundColor="#596EFB"
+                             BackgroundColor="{StaticResource BaseVioletColor}"
                              Margin="0,0,20,20" 
                              HorizontalOptions="End"
                              VerticalOptions="End"

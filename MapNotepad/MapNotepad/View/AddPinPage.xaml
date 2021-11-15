@@ -5,6 +5,7 @@
              xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
              xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
              xmlns:gmaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:translateService="clr-namespace:MapNotepad.Services.TranslateService;assembly=MapNotepad"
              x:Class="MapNotepad.View.AddPinPage">
     <ContentPage.Content>
         <StackLayout>
@@ -18,32 +19,30 @@
             <StackLayout Spacing="21"
                          Padding="16, 0">
                 
-                <controls:ExtendedEntry EntryTitle="Label"
-                                        Placeholder="Enter the label"
-                                        Text="{Binding Label}"
-                                        ErrorIsVisible="False"/>
+                <controls:ExtendedEntry EntryTitle="{translateService:Translate Label}"
+                                        Placeholder="{translateService:Translate LabelPlaceholder}"
+                                        Text="{Binding Label}"/>
                 
-                <controls:ExtendedEntry EntryTitle="Description"
-                                        Placeholder="Write a description"
-                                        Text="{Binding Description}"
-                                        ErrorIsVisible="False"/>
+                <controls:ExtendedEntry EntryTitle="{translateService:Translate Description}"
+                                        Placeholder="{translateService:Translate DescriptionPlaceholder}"
+                                        Text="{Binding Description}"/>
                 
                 <StackLayout>
-                    <Label Text="Coordinates"
+                    <Label Text="{translateService:Translate CoordinatesLabel}"
                            Style="{StaticResource EntryTitleStyle}"/>
                     
                     <StackLayout Orientation="Horizontal">
                         <controls:FrameEntry Text="{Binding Longitude}"
-                                             Placeholder="Longitude"
+                                             Placeholder="{translateService:Translate LongitudePlaceholder}"
                                              VerticalOptions="Center"
                                              HorizontalOptions="FillAndExpand"
-                                             BorderColor="#D7DDE8"/>
+                                             BorderColor="{StaticResource EntryBorderColor}"/>
                         
-                        <controls:FrameEntry Placeholder="Latitude"
+                        <controls:FrameEntry Placeholder="{translateService:Translate LatitudePlaceholder}"
                                              Text="{Binding Latitude}"
                                              VerticalOptions="Center"
                                              HorizontalOptions="FillAndExpand"
-                                             BorderColor="#D7DDE8"/>
+                                             BorderColor="{StaticResource EntryBorderColor}"/>
                     </StackLayout>
                 </StackLayout>
                 

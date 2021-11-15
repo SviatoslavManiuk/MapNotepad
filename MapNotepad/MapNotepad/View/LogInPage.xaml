@@ -4,39 +4,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
              xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             xmlns:translateService="clr-namespace:MapNotepad.Services.TranslateService;assembly=MapNotepad"
              x:Class="MapNotepad.View.LogInPage">
     <ContentPage.Content>
         <StackLayout>
            <StackLayout>
-               <controls:TitleNavigationBar Title = "Log in"
+               <controls:TitleNavigationBar Title = "{translateService:Translate LogInTitle}"
                                             LeftImageCommand="{Binding BackButtonCommand}"/>
            </StackLayout>
             
             <StackLayout Spacing="8"
                          Padding="16, 0">
                 
-                <controls:ExtendedEntry EntryTitle="Email"
-                                          Placeholder="Enter email"
-                                          ImageSource="ic_clear.png"
-                                          ErrorText=""/>
+                <controls:ExtendedEntry EntryTitle="{translateService:Translate EmailLabel}"
+                                        Placeholder="{translateService:Translate EmailPlaceholder}"
+                                        ImageSource="ic_clear.png"
+                                        ErrorText="{translateService:Translate ErrorEmail}"
+                                        Text="{Binding Email}"
+                                        ImageCommand="{Binding EmailClearCommand}"
+                                        IsImageVisible="{Binding IsEmailClearImageVisible}"/>
+                    
                 
-                <controls:ExtendedEntry EntryTitle="Password"
-                                          Placeholder="Enter password"
-                                          ImageSource="ic_clear.png"
-                                          ErrorText=""/>
+                <controls:ExtendedEntry EntryTitle="{translateService:Translate PasswordLabel}"
+                                        Placeholder="{translateService:Translate PasswordPlaceholder}"
+                                        ImageSource="ic_clear.png"
+                                        ErrorText="{translateService:Translate ErrorPassword}"
+                                        Text="{Binding Password}"
+                                        ErrorIsVisible="{Binding PasswordErrorIsVisible}"
+                                        BorderColor="{Binding PasswordBorderColor}"
+                                        IsImageVisible="{Binding IsPasswordImageVisible}"/>
             </StackLayout>
             
             <StackLayout Margin="0,25,0,0">
                 <Button Style="{StaticResource BaseButtonStyle}"
-                        Text="Log in"
+                        Text="{translateService:Translate LogInTitle}"
                         Command="{Binding LogInCommand}"/>
                 
                 <controls:Separator></controls:Separator>
                 
                 <Button Text="Google"
-                        TextColor="#596EFB"
-                        BackgroundColor="#FFFFFF"
-                        BorderColor="Black"
+                        TextColor="{StaticResource BaseVioletColor}"
+                        BackgroundColor="Transparent"
                         FontFamily="Montserrat-Regular"
                         Style="{StaticResource BaseButtonStyle}"/>
             </StackLayout>

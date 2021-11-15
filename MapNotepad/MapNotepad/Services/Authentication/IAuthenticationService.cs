@@ -8,6 +8,6 @@ namespace MapNotepad.Services.Authentication
     {
         Task<AOResult<UserModel>> SignInAsync(string email, string password);
 
-        Task<AOResult> SignUpAsync(string email, string password);
+        Task<AOResult> SignUpAsync(string name, string email, string password);
     }
 }

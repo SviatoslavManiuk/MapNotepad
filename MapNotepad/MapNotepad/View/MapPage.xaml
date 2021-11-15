@@ -5,10 +5,11 @@
              xmlns:gmaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
              xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
+             xmlns:translateService="clr-namespace:MapNotepad.Services.TranslateService;assembly=MapNotepad"
              x:Class="MapNotepad.View.MapPage">
     <ContentPage.Content>
         <StackLayout Spacing="0">
-            <controls:SearchNavigationBar Placeholder="Search"
+            <controls:SearchNavigationBar Placeholder="{translateService:Translate SearchPlaceholder}"
                                           Text="{Binding SearchText}"
                                           IsEntryImageVisible="{Binding IsEntryImageVisible}"/>
             
@@ -21,7 +22,7 @@
                 <ImageButton Grid.Row="0"
                              Source="ic_location.png"
                              CornerRadius="50"
-                             BackgroundColor="#FEFEFD"
+                             BackgroundColor="{StaticResource LocationButtonColor}"
                              Margin="0,0,20,22" 
                              HorizontalOptions="End"
                              VerticalOptions="End"

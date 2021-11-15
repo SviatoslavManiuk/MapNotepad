@@ -15,7 +15,11 @@
                  HorizontalOptions="Fill">
             <controls:SimpleEntry Placeholder="{Binding Placeholder, Source={x:Reference frameEntry}}"
                                   Text="{Binding Text, Source={x:Reference frameEntry}}"
-                                  HorizontalOptions="FillAndExpand"/>
+                                  HorizontalOptions="FillAndExpand">
+                <controls:SimpleEntry.Style>
+                    
+                </controls:SimpleEntry.Style>
+            </controls:SimpleEntry>
             
             <Image Source="{Binding ImageSource, Source={x:Reference frameEntry}}"
                    WidthRequest="24"

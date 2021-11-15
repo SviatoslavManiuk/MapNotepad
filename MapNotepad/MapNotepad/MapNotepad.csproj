@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Helpers\Converters" />
     <Folder Include="Resources\Fonts" />
   </ItemGroup>
 
@@ -39,6 +40,11 @@
     <Compile Update="View\WelcomePage.xaml.cs">
       <DependentUpon>LogInRegister.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -79,5 +85,9 @@
     <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-BlackItalic.ttf" />
     <None Remove="Resources\Fonts\Montserrat\Montserrat-Black.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Montserrat\Montserrat-Black.ttf" />
+    <EmbeddedResource Update="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -6,6 +6,6 @@
              HeightRequest="1"
              HorizontalOptions="FillAndExpand"
              VerticalOptions="Center"
-             Color="#D7DDE8">
+             Color="{StaticResource LineColor}">
     
 </BoxView>

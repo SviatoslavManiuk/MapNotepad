@@ -61,6 +61,7 @@
     <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="4.0.0-BETA1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Localize.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\CustomTabbedPageRenderer.cs" />
     <Compile Include="Renderers\SimpleEntryRenderer.cs" />

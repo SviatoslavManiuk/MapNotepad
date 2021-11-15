@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             x:Name="labelEntryError"
+             x:Class="MapNotepad.Controls.ExtendedEntry">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="{Binding EntryTitle, Source={x:Reference labelEntryError}}"
+                       Style="{StaticResource EntryTitleStyle}"/>
+                
+                <controls:FrameEntry BorderColor="{Binding BorderColor, Source={x:Reference labelEntryError}}"
+                                     Placeholder="{Binding Placeholder, Source={x:Reference labelEntryError}}"
+                                     Text="{Binding Text, Source={x:Reference labelEntryError}}"
+                                     ImageSource="{Binding ImageSource, Source={x:Reference labelEntryError}}"
+                                     ImageCommand="{Binding ImageCommand, Source={x:Reference labelEntryError}}"
+                                     IsImageVisible="{Binding IsImageVisible, Source={x:Reference labelEntryError}}"/>
+            </StackLayout>
+            
+            <Label Padding="12, 2,0,6"
+                   TextColor="{StaticResource ErrorColor}"
+                   FontFamily="Montserrat-Regular"
+                   FontSize="10"
+                   Text = "{Binding ErrorText, Source={x:Reference labelEntryError}}"
+                   IsVisible="{Binding ErrorIsVisible, Source={x:Reference labelEntryError}}"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentView>

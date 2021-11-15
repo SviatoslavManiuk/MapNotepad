@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gmaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
+             xmlns:translateService="clr-namespace:MapNotepad.Services.TranslateService;assembly=MapNotepad"
+             x:Class="MapNotepad.View.MapPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <controls:SearchNavigationBar Placeholder="{translateService:Translate SearchPlaceholder}"
+                                          Text="{Binding SearchText}"
+                                          IsEntryImageVisible="{Binding IsEntryImageVisible}"/>
+            
+            <Grid RowDefinitions="*"
+                  VerticalOptions="FillAndExpand">
+                <gmaps:Map x:Name="map"
+                           Grid.Row="0"
+                           MapType="Street"
+                           ItemsSource="{Binding Pins}">
+                    <gmaps:Map.ItemTemplate>
+                        <DataTemplate>
+                            <gmaps:Pin Position="{Binding Position}"
+                                       Label="{Binding Name}" />
+                        </DataTemplate>
+                    </gmaps:Map.ItemTemplate>
+                </gmaps:Map>
+                
+                <ImageButton Grid.Row="0"
+                             Source="ic_location.png"
+                             CornerRadius="50"
+                             BackgroundColor="{StaticResource LocationButtonColor}"
+                             Margin="0,0,20,22" 
+                             HorizontalOptions="End"
+                             VerticalOptions="End"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             Command="{Binding UserLocationCommand}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</view:BaseContentPage>

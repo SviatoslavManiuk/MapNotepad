@@ -7,16 +7,24 @@
              x:Class="MapNotepad.Controls.FrameEntry"
              CornerRadius="2"
              HeightRequest="41"
-             Padding="12, 10"
+             Padding="12"
              HasShadow="False">
+    
     <StackLayout>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+    <StackLayout Orientation="Horizontal"
+                 HorizontalOptions="Fill">
             <controls:SimpleEntry Placeholder="{Binding Placeholder, Source={x:Reference frameEntry}}"
                                   Text="{Binding Text, Source={x:Reference frameEntry}}"
-                                  HorizontalOptions="StartAndExpand"/>
+                                  HorizontalOptions="FillAndExpand">
+                <controls:SimpleEntry.Style>
+                    
+                </controls:SimpleEntry.Style>
+            </controls:SimpleEntry>
+            
             <Image Source="{Binding ImageSource, Source={x:Reference frameEntry}}"
                    WidthRequest="24"
-                   HeightRequest="24">
+                   HeightRequest="24"
+                   IsVisible="{Binding IsImageVisible, Source={x:Reference frameEntry}}">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ImageCommand, Source={x:Reference frameEntry}}"/> 
                 </Image.GestureRecognizers>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
+             xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             xmlns:gmaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:translateService="clr-namespace:MapNotepad.Services.TranslateService;assembly=MapNotepad"
+             x:Class="MapNotepad.View.AddPinPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:TitleNavigationBar Title="{Binding Title}"
+                                         LeftImageCommand="{Binding BackButtonCommand}"
+                                         RightImageSource="ic_save.png"
+                                         RightImageCommand="{Binding SaveCommand}"/>
+            
+            <controls:HorizontalLine/>
+            
+            <StackLayout Spacing="21"
+                         Padding="16, 0">
+                
+                <controls:ExtendedEntry EntryTitle="{translateService:Translate Label}"
+                                        Placeholder="{translateService:Translate LabelPlaceholder}"
+                                        Text="{Binding Label}"/>
+                
+                <controls:ExtendedEntry EntryTitle="{translateService:Translate Description}"
+                                        Placeholder="{translateService:Translate DescriptionPlaceholder}"
+                                        Text="{Binding Description}"/>
+                
+                <StackLayout>
+                    <Label Text="{translateService:Translate CoordinatesLabel}"
+                           Style="{StaticResource EntryTitleStyle}"/>
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <controls:FrameEntry Text="{Binding Longitude}"
+                                             Placeholder="{translateService:Translate LongitudePlaceholder}"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="FillAndExpand"
+                                             BorderColor="{StaticResource EntryBorderColor}"/>
+                        
+                        <controls:FrameEntry Placeholder="{translateService:Translate LatitudePlaceholder}"
+                                             Text="{Binding Latitude}"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="FillAndExpand"
+                                             BorderColor="{StaticResource EntryBorderColor}"/>
+                    </StackLayout>
+                </StackLayout>
+                
+            </StackLayout>
+            
+            <StackLayout VerticalOptions="FillAndExpand"
+                         Padding="0,20,0,0">
+                <gmaps:Map></gmaps:Map>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</view:BaseContentPage>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
+             xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             xmlns:translateService="clr-namespace:MapNotepad.Services.TranslateService;assembly=MapNotepad"
+             x:Class="MapNotepad.View.PinsListPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <controls:SearchNavigationBar Placeholder="{translateService:Translate SearchPlaceholder}"
+                                          Text="{Binding SearchText}"
+                                          IsEntryImageVisible="{Binding IsEntryImageVisible}"/>
+            
+            <controls:HorizontalLine/>
+            
+            <Grid RowDefinitions="*"
+                  VerticalOptions="FillAndExpand">
+                
+                <ScrollView Grid.Row="0">
+                    <ListView HasUnevenRows="True"
+                              ItemsSource="{Binding Pins}">
+                        
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <Grid ColumnDefinitions="0.2*, 0.7*, 0.1*"
+                                              Padding="16, 0">
+                                            <ImageButton Grid.Column="0"
+                                                         Padding="0,0,12, 0"
+                                                         HeightRequest="45"
+                                                         WidthRequest="45"
+                                                         BackgroundColor="{StaticResource IsFavouriteBackgroundColor}"
+                                                         CornerRadius="6"
+                                                         Source="{Binding FavouriteIcon}"
+                                                         VerticalOptions="Center">
+                                            </ImageButton>
+
+                                            <StackLayout Grid.Column="1"
+                                                         VerticalOptions="Center">
+                                                <Label Style="{StaticResource PinLabelStyle}"
+                                                       Text="{Binding Label}"/>
+                                                
+                                                <StackLayout Orientation="Horizontal"
+                                                             Spacing="0"
+                                                             Style="{StaticResource PinCoordinatesStyle}">
+                                                    <Label Text="{Binding Longitude}"/>
+                                                    <Label Text=", "/>
+                                                    <Label Text="{Binding Latitude}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            
+                                            <Image Grid.Column="2"
+                                                   VerticalOptions="Center"
+                                                   HeightRequest="30"
+                                                   WidthRequest="30"
+                                                   BackgroundColor="Transparent"
+                                                   Source="ic_left_grey.png">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding ImageCommand, Source={x:Reference frameEntry}}"/> 
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </Grid>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+                
+                <!-- Add Button -->
+                <ImageButton Grid.Row="0"
+                             Source="ic_plus.png"
+                             CornerRadius="50"
+                             BackgroundColor="{StaticResource BaseVioletColor}"
+                             Margin="0,0,20,20" 
+                             HorizontalOptions="End"
+                             VerticalOptions="End"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             Command="{Binding AddPinCommand}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</view:BaseContentPage>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<view:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:MapNotepad.View;assembly=MapNotepad"
+             xmlns:controls="clr-namespace:MapNotepad.Controls;assembly=MapNotepad"
+             xmlns:translateService="clr-namespace:MapNotepad.Services.TranslateService;assembly=MapNotepad"
+             x:Class="MapNotepad.View.CreateAccountEmailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <controls:TitleNavigationBar Title = "{translateService:Translate CreateAccountTitle}"
+                                             LeftImageCommand="{Binding BackButtonCommand}"/>
+            </StackLayout>
+            
+            <StackLayout Spacing="8"
+                         Padding="16, 0">
+                
+                <controls:ExtendedEntry EntryTitle="{translateService:Translate NameLabel}"
+                                        Placeholder="{translateService:Translate NamePlaceholder}"
+                                        ImageSource="ic_clear.png"
+                                        Text="{Binding Name}"/>
+                
+                <controls:ExtendedEntry EntryTitle="{translateService:Translate EmailLabel}"
+                                        Placeholder="{translateService:Translate EmailPlaceholder}"
+                                        Text="{Binding Email}"
+                                        ImageSource="ic_clear.png"/>
+            </StackLayout>
+            
+            <StackLayout Margin="0,25,0,0">
+                <Button Style="{StaticResource BaseButtonStyle}"
+                        Command="{Binding NextButtonCommand}"
+                        Text="{translateService:Translate NextButton}"/>
+                
+                <controls:Separator></controls:Separator>
+                
+                <Button Text="Google"
+                        TextColor="{StaticResource BaseVioletColor}"
+                        BackgroundColor="Transparent"
+                        FontFamily="Montserrat-Regular"
+                        Style="{StaticResource BaseButtonStyle}"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</view:BaseContentPage>

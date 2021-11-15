@@ -8,11 +8,11 @@ namespace MapNotepad.Services.EntityServices
 {
     public class UserService
     {
-        private IRepository _repository;
+        private IRepositoryService _repositoryService;
 
-        public UserService(IRepository repository)
+        public UserService(IRepositoryService repositoryService)
         {
-            _repository = repository;
+            _repositoryService = repositoryService;
         }
 
         public async Task<AOResult<int>> InsertAsync(UserModel user)
@@ -21,7 +21,7 @@ namespace MapNotepad.Services.EntityServices
             
             try
             {
-                int numRowsInserted = await _repository.InsertAsync(user);
+                int numRowsInserted = await _repositoryService.InsertAsync(user);
                 if (numRowsInserted != 0)
                 {
                     result.SetSuccess(numRowsInserted);
@@ -45,7 +45,7 @@ namespace MapNotepad.Services.EntityServices
             
             try
             {
-                var user = await _repository.FindWithQueryAsync<UserModel>("SELECT * FROM User WHERE Email = ?", email);
+                var user = await _repositoryService.FindWithQueryAsync<UserModel>("SELECT * FROM User WHERE Email = ?", email);
                 if (user != null)
                 {
                     result.SetSuccess(user);

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Prism.Mvvm;
 using Prism.Navigation;
 
@@ -9,6 +10,12 @@ namespace MapNotepad.ViewModel
         {
             NavigationService = navigationService;
         }
+        
+        protected async Task OnBackButtonCommandAsync()
+        {
+            await NavigationService.GoBackAsync();
+        }
+        
         
         #region -- Public Properties --
         protected INavigationService NavigationService { get; }

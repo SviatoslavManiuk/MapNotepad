@@ -3,12 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
              xmlns:mapNotepad="clr-namespace:MapNotepad;assembly=MapNotepad"
+             xmlns:processHelpers="clr-namespace:MapNotepad.Helpers.ProcessHelpers;assembly=MapNotepad"
              x:Class="MapNotepad.App">
     <prism:PrismApplication.Resources>
         <ResourceDictionary>
-            <Style x:Key="BaseButton" TargetType="Button">
+            <Color x:Key="BaseVioletColor">#596EFB</Color>
+            <Color x:Key="TitleColor">#1E242B</Color>
+            <Color x:Key="PinCoordinatesColor">#3D4E61</Color>
+            <Color x:Key="EntryBorderColor">#D7DDE8</Color>
+            <Color x:Key="LocationButtonColor">#FEFEFD</Color>
+            <Color x:Key="IsFavouriteBackgroundColor">#F1F3FD</Color>
+            <Color x:Key="ErrorColor">#F24545</Color>
+            <Color x:Key="LineColor">#D7DDE8</Color>
+            
+            <Style x:Key="BaseButtonStyle" TargetType="Button">
                 <Setter Property="TextColor" Value="{x:Static mapNotepad:Colors.BASE_COLOR}" />
-                <Setter Property="BackgroundColor" Value="#596EFB" />
+                <Setter Property="BackgroundColor" Value="{StaticResource BaseVioletColor}" />
                 <Setter Property="FontFamily" Value="Montserrat-Regular" />
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="CornerRadius" Value="1"/>
@@ -16,17 +26,30 @@
                 <Setter Property="HorizontalOptions" Value="Fill"/>
             </Style>
             
-            <Style x:Key="Title" TargetType="Label">
-                <Setter Property="TextColor" Value="#1E242B" />
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TitleColor}" />
                 <Setter Property="FontFamily" Value="Montserrat-Regular" />
                 <Setter Property="FontSize" Value="20"/>
             </Style>
             
-            <Style x:Key="EntryTitle" TargetType="Label">
+            <Style x:Key="EntryTitleStyle" TargetType="Label">
                 <Setter Property="Padding" Value="12, 0,0,6"/>
                 <Setter Property="FontFamily" Value="Montserrat-Regular"/>
                 <Setter Property="FontSize" Value="12"/>
             </Style>
+            
+            <Style x:Key="PinLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TitleColor}" />
+                <Setter Property="FontFamily" Value="Montserrat-Medium" />
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+            <Style x:Key="PinCoordinatesStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource PinCoordinatesColor}" />
+                <Setter Property="FontFamily" Value="Montserrat-Regular" />
+                <Setter Property="FontSize" Value="12"/>
+            </Style>
+            
+            <processHelpers:InverseBoolConverter x:Key="InverseBoolConverter"/>
         </ResourceDictionary>
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>

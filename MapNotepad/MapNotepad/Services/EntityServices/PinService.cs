@@ -9,11 +9,11 @@ namespace MapNotepad.Services.EntityServices
 {
     public class PinService
     {
-        private IRepository _repository;
+        private IRepositoryService _repositoryService;
 
-        public PinService(IRepository repository)
+        public PinService(IRepositoryService repositoryService)
         {
-            _repository = repository;
+            _repositoryService = repositoryService;
         }
 
         public async Task<AOResult<int>> InsertAsync(PinModel pin)
@@ -22,7 +22,7 @@ namespace MapNotepad.Services.EntityServices
             
             try
             {
-                int numRowsInserted =  await _repository.InsertAsync(pin);
+                int numRowsInserted =  await _repositoryService.InsertAsync(pin);
                 if (numRowsInserted != 0)
                 {
                     result.SetSuccess(numRowsInserted);
@@ -46,7 +46,7 @@ namespace MapNotepad.Services.EntityServices
             
             try
             {
-                int numRowsDeleted =  await _repository.DeleteAsync(pin);
+                int numRowsDeleted =  await _repositoryService.DeleteAsync(pin);
                 if (numRowsDeleted != 0)
                 {
                     result.SetSuccess(numRowsDeleted);
@@ -70,7 +70,7 @@ namespace MapNotepad.Services.EntityServices
             
             try
             {
-                int numRowsUpdated =  await _repository.UpdateAsync(pin);
+                int numRowsUpdated =  await _repositoryService.UpdateAsync(pin);
                 if (numRowsUpdated != 0)
                 {
                     result.SetSuccess(numRowsUpdated);
@@ -88,13 +88,13 @@ namespace MapNotepad.Services.EntityServices
             return result;
         }
 
-        public async Task<AOResult<List<PinModel>>> GetPinsByUserAsync(int userId)
+        public async Task<AOResult<IEnumerable<PinModel>>> GetPinsByUserAsync(int userId)
         {
-            var result = new AOResult<List<PinModel>>();
+            var result = new AOResult<IEnumerable<PinModel>>();
             
             try
             {
-                var pins =  await _repository.GetTable<PinModel>().Where(pin => pin.UserId == userId).ToListAsync();
+                var pins =  await _repositoryService.GetTable<PinModel>().Where(pin => pin.UserId == userId).ToListAsync();
                 if (pins.Count != 0)
                 {
                     result.SetSuccess(pins);
@@ -111,5 +111,30 @@ namespace MapNotepad.Services.EntityServices
 
             return result;
         }
+        
+        public async Task<AOResult<PinModel>> FindByCoordinatesAsync(double longitude, double latitude)
+        {
+            var result = new AOResult<PinModel>();
+            
+            try
+            {
+                var pin = await _repositoryService.FindWithQueryAsync<PinModel>("SELECT * FROM Pin WHERE Longitude = ? And Latidude = ?", longitude, latitude);
+                if (pin != null)
+                {
+                    result.SetSuccess(pin);
+                }
+                else
+                {
+                    result.SetFailure();
+                }
+            }
+            catch (Exception ex)
+            {
+                result.SetError($"{nameof(FindByCoordinatesAsync)} exception: ", "Something went wrong", ex);
+            }
+
+            return result;
+        }
+        
     }
 }
